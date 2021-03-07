@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+html {
+    scroll-behavior: smooth;
+}
+.max-width {
+    /*max-width: 1300px;*/
+    padding: 0 80px;
+    margin: auto;
+    
+}
+
+/* Estilização da navbar - navbar stylization*/
+.navbar {
+    position: fixed;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    padding: 30px 0;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+.navbar .max-width {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar.sticky {
+    padding: 15px 0;
+    background-image: var(--gradient-color);
+}
+.navbar .logo a{
+    color: white;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.navbar .menu {
+    width: 690px;
+}
+
+.navbar .menu li {
+    list-style: none;
+    display: inline-block;
+}
+
+
+.navbar .menu li a {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 25px;
+    transition: color 0.3s ease;
+}
+.navbar .menu li a:hover {
+    color: #EC9F05;
+}
+.navbar.sticky .menu li a:hover {
+    color: #EC9F05;
+}
+
+/*Estilização do menu btn - menu btn stylization*/
+.menu-btn {
+    color: white;
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+}
+
+/*Estilização da página inicial - home page stylization*/
+.home {
+    display: flex;
+    /*background: url("") no-repeat center;*/
+    background-image: var(--gradient-color);
+    height: 100vh;
+    color: white;
+    min-height: 500px;
+    font-family: 'Ubuntu', sans-serif;
+    justify-content: space-between;
+}
+.home .max-width {
+    margin: auto 0 auto 40px;
+}
+.home .home-content a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #0466c8;
+    color: white;
+    font-size: 20px;
+    /*padding: 12px 36px;*/
+    border-radius: 6px;
+    border: 2px solid #0466c8;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+.home .home-content a:hover {
+    color: #EC9F05;
+    border: 2px solid #EC9F05;
+    background: none;
+}
+.home .home-content .home-text-1 {
+    font-size: 27px;
+}
+.home .home-content .home-text-2 {
+    font-size: 75px;
+    font-weight: 600;
+    margin-left: -3px;
+}
+.home .home-content .home-text-3 {
+    font-size: 40px;
+    margin: 5px 0;
+}
+.home .home-content .home-text-3 span {
+    color: #1828c5;
+    font-weight: 500;
+}
+
+/*Estilização da página sobre - about page stylization*/
+section {
+    padding: 100px 0;
+    
+}
+.about {
+    font-family: 'Poppins',sans-serif;
+    
+}
+.about .title {
+    text-align: center;
+    font-family: 'Poppins',sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+    position: relative;
+}
+.about .about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.about .about-content .left {
+    width: 45%;
+
+}
+.about .about-content .left img {
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+div .column-left {
+    background-color: #000;
+}
+.about .about-content .right {
+    width: 55%;
+}
+.about .about-content .right .text {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.about .about-content .right .text span{
+    color: #1828c5;
+}
+.about .about-content .right p {
+    text-align: justify;
+}
+.about .about-content .right a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #1828c5;
+    color: white;
+    font-size: 25px;
+    font-weight: 500;
+    /*padding: 8px 30px;*/
+    border-radius: 6px;
+    border: 2px solid #1828c5;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+.about .about-content .right a:hover {
+    color: #1828c5;
+    background: none;
+    border: 2px solid #1828c5;
+}
+
+
+.Who {
+    font-family: 'Poppins',sans-serif;
+    background-image: url(../img/gradient.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    
+
+    
+}
+.Who .title {
+    text-align: center;
+    font-family: 'Poppins',sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+    position: relative;
+}
+.Who .who-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.Who .who-content .left {
+    width: 45%;
+}
+.Who .who-content .left img{
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.Who .who-content .right {
+    width: 55%;
+}
+.Who .who-content .right .text {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.Who .who-content .right .text span{
+    color: #1828c5;
+}
+.Who .who-content .right p {
+    text-align: justify;
+    
+
+}
+.Who .who-content .right a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #1828c5;
+    color: white;
+    font-size: 25px;
+    font-weight: 500;
+    /*padding: 8px 30px;*/
+    border-radius: 6px;
+    border: 2px solid #1828c5;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+.Who .who-content .right a:hover {
+    color: #1828c5;
+    background: none;
+    border: 2px solid #1828c5;
+}
+a.android{
+    width: 162px;
+    height: 62px;
+}
+a.ios{
+    width: 162px;
+    height: 62px;
+    text-align: center;
+}
+
+
+.Why {
+    font-family: 'Poppins',sans-serif;   
+}
+.Why .title {
+    text-align: center;
+    font-family: 'Poppins',sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+    position: relative;
+}
+.Why .Why-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+.Why .Why-content .text {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+.Why .Why-content .resposta{
+    font-size: 24px;
+    font-weight: 600;
+}
+.Why .Why-content p {
+    text-align: justify;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+
+
+

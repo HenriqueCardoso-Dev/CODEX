@@ -1,0 +1,47 @@
+<ion-content [fullscreen]="true">
+
+  <section>
+
+    <ion-text>
+        <h1>CODEX</h1>
+    </ion-text>
+
+    <ion-text>
+      <h4>Entrar ou Cadastrar:</h4>
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="stacked">usuário ou e-mail:</ion-label>
+      <ion-input [(ngModel)]="userValue"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">senha:</ion-label>
+      <ion-input type="password" [(ngModel)]="passwordValue"></ion-input>
+    </ion-item>
+
+    <div class="botoes">
+
+      <ion-button (click)="LogIn()">Entrar</ion-button>
+
+      <ion-text (click)="goToRegister()">
+        cadastre-se
+      </ion-text>
+
+    </div>
+
+
+    <div class="othersLogin">
+ 
+      <ion-item *ngFor="let item of loginOptions" (click)="LogInWithGoogle()">
+        <ion-thumbnail slot="start">
+          <img src="{{item.icon}}"/>
+        </ion-thumbnail>
+        <ion-text>{{item.text}}</ion-text>
+      </ion-item>
+
+    </div>
+
+  </section>
+
+</ion-content>

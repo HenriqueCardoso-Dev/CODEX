@@ -1,0 +1,37 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title mode="ios">
+      <img src=""> <!-- Adicionar a logo da CODEX -->
+      <span>Linguagens</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+
+  <div class="blocks-languages" *ngFor="let language of languages">
+    <ion-card mode="ios">
+      <img src="../../assets/images/logo-facebook-50px.jpg">
+      <div>
+        <ion-item lines="none" class="languageTitle">
+          <!-- Adicionar a logo da linguagem -->
+          <ion-label>{{language.name}}</ion-label>
+        </ion-item>
+  
+        <ion-card-content>
+          <ion-icon name="school-outline"></ion-icon> {{language.qtdAulas}} aulas 
+        </ion-card-content>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>
+
+<!-- Criação de um Rodapé caso necessário
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title>Rodapé</ion-title>
+  </ion-toolbar>
+</ion-footer>
+-->
+
+

@@ -1,0 +1,40 @@
+<ion-content [fullscreen]="true">
+
+  <section>
+ 
+    <ion-text>
+        <h1>CODEX</h1>
+    </ion-text>
+
+    <ion-text>
+      <h4>Cadastre-se:</h4>
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="stacked">Username</ion-label>
+      <ion-input [(ngModel)]="usernameValue"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">e-mail:</ion-label>
+      <ion-input [(ngModel)]="emailUserValue"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Senha:</ion-label>
+      <ion-input [(ngModel)]="passwordUserValue"></ion-input>
+    </ion-item>
+
+    <div class="botoes">
+
+      <ion-button (click)="registerNewUser()">Cadastrar</ion-button>
+
+      <ion-text (click)="goToLogin()">
+        voltar ao login
+      </ion-text>
+
+    </div>
+ 
+  </section>
+
+</ion-content>
