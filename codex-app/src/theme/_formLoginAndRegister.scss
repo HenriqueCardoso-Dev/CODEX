@@ -1,0 +1,111 @@
+//importações:
+
+@import url(https://fonts.googleapis.com/css2?family=Ubuntu:wght@100;200;300;400;500;600;700&display=swap);
+
+//variaveis:
+$text-color: #fff;
+$background-color: #0bb0da;
+
+*{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+ion-content{
+    height: 100vh;
+
+}
+
+section{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4% 6%;
+    background-color: $background-color;
+}
+
+ion-text{
+    h1{
+        text-align: center;
+        font-size: 30pt;
+        color: $text-color;
+    }
+    h4{
+        text-align: center;
+        font-size: 12pt;
+        color: $text-color;
+    }
+}
+
+ion-item {
+    --background: rgb(243, 243, 243);
+    --border-color:  rgba(255, 255, 255, 0);
+    --padding-start: 0;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    height: 60px;
+
+    $label-color: #1a1a1a;
+
+    ion-input{
+        outline: none;
+        color: $label-color;
+        margin: 0 0 10px 15px;
+        font-size: 12pt;
+        font-weight: 450;
+    }
+
+    ion-label{
+        color: $label-color;
+        margin-left: 10px;
+        margin-bottom:0;
+        font-size: 9pt;
+    }
+}
+
+div.botoes {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+
+    ion-button{
+        height: 50px;
+        width: 130px;
+        font-weight: bold;
+        --border-radius:20px;
+        --background: rgb(20, 179, 34);
+        --background-hover: rgb(20, 179, 34);
+        --transition: 3.2s;
+
+    }
+    ion-text{
+        font-size: 9pt;
+        font-weight: bold;
+        color: $text-color;
+        margin-top: 5px;
+    }
+}
+
+div.othersLogin {
+
+    margin-top: 15%;
+
+    ion-item {
+        height: 30px;
+        border-radius: 8px;
+        padding:0;
+        color: #000;
+        display: flex;
+        
+
+        ion-thumbnail, ion-img{
+            height: 30px;
+            width: 30px;
+            margin: 0;
+            padding: 5px;
+        }
+        ion-text{
+            margin-left: 10px;
+        }
+    }
+}

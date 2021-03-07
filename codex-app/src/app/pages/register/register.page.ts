@@ -27,7 +27,7 @@ export class RegisterPage implements OnInit {
 
 
   goToLogin() {
-    this.route.navigate(['login-page']);
+    this.route.navigate(['login']);
   }
 
   checkDataRegister() {
