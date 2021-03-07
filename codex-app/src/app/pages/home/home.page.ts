@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router, ActivatedRoute } from '@angular/router';
+import { languageBoxContent } from 'src/interfacesModels/languageBoxContent';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomePage implements OnInit {
   username: '';
   password: '';
 
-  languages: any;
+  private languages: languageBoxContent[];
 
   constructor(private router : Router, private recive : ActivatedRoute) { 
 
@@ -26,9 +27,10 @@ export class HomePage implements OnInit {
     });
 
     this.languages = [
-      {'name': 'HTML', 'qtdAulas': '10'},
-      {'name': 'CSS', 'qtdAulas': '19'},
-      {'name': 'JavaScript', 'qtdAulas': '9'}
+      {name: 'HTML', qtdAulas: '10', image:'../../assets/images/language-icon-html.jpg'},
+      {name: 'CSS', qtdAulas: '19', image:'../../assets/images/language-icon-css.jpg'},
+      {name: 'JavaScript', qtdAulas: '9', image:'../../assets/images/language-icon-js.jpg'},
+      {name: 'PHP', qtdAulas: '15', image:'../../assets/images/language-icon-php.jpg'},
     ];
 
   }

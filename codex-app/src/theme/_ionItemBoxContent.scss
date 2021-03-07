@@ -1,0 +1,36 @@
+ion-item {
+    margin: 6% 4%;
+    height: 50px;
+    display: flex;
+    border-radius: 9px;
+    --padding-start:0;
+    box-shadow: 0px 0px 4px #000000;
+    --background: #f1f1f1;
+
+
+    ion-label {
+        font-size: 11pt;
+        font-weight: bold;
+        color: #646464;
+        margin-bottom: 23px;
+    }
+    
+    ion-thumbnail {
+        padding: 0;
+
+        img {
+            --border-radius: 9px 0px 0px 9px;
+            padding:0;
+            margin:0;
+            
+        }
+    }
+
+    ion-text {
+        font-size: 10pt;
+        margin-top: 23px;
+        font-weight: bold;
+        color: #56c939;
+
+    }
+}
