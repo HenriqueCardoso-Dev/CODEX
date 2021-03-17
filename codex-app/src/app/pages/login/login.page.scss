@@ -1,1 +1,10 @@
 @import 'src/theme/_formLoginAndRegister.scss';
+.logo-default {
+
+  display: flex;
+  justify-content: center;
+
+  img {
+   height: 50vw;
+  }
+}
