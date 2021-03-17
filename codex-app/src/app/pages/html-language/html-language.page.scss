@@ -1,0 +1,27 @@
+//imports
+@import 'src/theme/_ionItemBoxContent.scss';
+@import 'src/theme/_mainFontImport.scss';
+
+ion-header{
+    ion-toolbar{
+      --max-height: 50px;
+      --background: #0bb0da;
+      //padding-bottom: 115px;
+  
+      ion-title{
+        img{
+          width: 45px;
+          margin-right: 10px;
+        }
+        span{
+          font-size: 15pt;
+          color: #fff;
+  
+        }
+      }
+    }
+  }
+  
+  ion-content {
+    --background: #0bb0da;
+  }

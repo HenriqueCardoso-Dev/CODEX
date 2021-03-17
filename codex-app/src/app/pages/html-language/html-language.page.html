@@ -1,0 +1,25 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title mode="ios">
+      <span>Exercícios</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item *ngFor="let exercise of exercises">
+  
+    <ion-thumbnail slot="start">
+      <img src="{{exercise.image}}" />
+    </ion-thumbnail>
+    <ion-label>{{exercise.name}}</ion-label>
+
+    <ion-text >
+      <ion-icon name="flash"></ion-icon>
+      {{exercise.experience}} XP
+    </ion-text>
+  
+  </ion-item>
+
+</ion-content>

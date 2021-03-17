@@ -24,4 +24,13 @@ ion-header{
 
 ion-content {
   --background: #0bb0da;
+
+  figure{
+    display: flex;
+    justify-content: center;
+    
+    .topFigure{
+      height: 40vw;
+    }
+  }
 }
