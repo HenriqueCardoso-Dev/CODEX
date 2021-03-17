@@ -24,6 +24,20 @@ const routes: Routes = [
     path: 'html-language',
     loadChildren: () => import('./pages/html-language/html-language.module').then( m => m.HtmlLanguagePageModule)
   },
+  {
+    path: 'css-language',
+    loadChildren: () => import('./pages/css-language/css-language.module').then( m => m.CssLanguagePageModule)
+  },
+  {
+    path: 'js-language',
+    loadChildren: () => import('./pages/js-language/js-language.module').then( m => m.JsLanguagePageModule)
+  },
+  {
+    path: 'php-language',
+    loadChildren: () => import('./pages/php-language/php-language.module').then( m => m.PhpLanguagePageModule)
+  },
+
+
 
 ];
 

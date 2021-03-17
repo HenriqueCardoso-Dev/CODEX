@@ -14,17 +14,10 @@ export class HtmlLanguagePage implements OnInit {
   constructor(private router: Router) {
 
     this.exercises = [
-      {name: 'Introdução', experience: '5' , image:'assets/images/languages/html/html-t.jpg'},
-      {name: 'Sintaxe', experience: '5', image:'assets/images/languages/html/html-t.jpg'},
-      {name: 'Sintaxe', experience: '7', image:'assets/images/languages/html/html-p.jpg'},
-      {name: 'Elementos', experience: '5', image:'assets/images/languages/html/html-t.jpg'},
-      {name: 'Sintaxe', experience: '5', image:'assets/images/languages/html/html-t.jpg'},
-      {name: 'Sintaxe', experience: '7', image:'assets/images/languages/html/html-p.jpg'},
-      {name: 'Elementos', experience: '5', image:'assets/images/languages/html/html-t.jpg'},
-      {name: 'Elementos', experience: '5', image:'assets/images/languages/html/html-t.jpg'},
-      {name: 'Sintaxe', experience: '5', image:'assets/images/languages/html/html-t.jpg'},
-      {name: 'Sintaxe', experience: '7', image:'assets/images/languages/html/html-p.jpg'},
-      {name: 'Elementos', experience: '5', image:'assets/images/languages/html/html-t.jpg'}
+      {id: 1, name: 'Introdução', experience: '5' , image:'assets/images/languages/html/html-t.jpg'},
+      {id: 2, name: 'Sintaxe', experience: '5', image:'assets/images/languages/html/html-t.jpg'},
+      {id: 3, name: 'Sintaxe', experience: '7', image:'assets/images/languages/html/html-p.jpg'},
+      {id: 4, name: 'Elementos', experience: '5', image:'assets/images/languages/html/html-t.jpg'}
     ];
   }
 
