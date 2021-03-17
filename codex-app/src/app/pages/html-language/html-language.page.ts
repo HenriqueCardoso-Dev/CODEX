@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { exerciseBoxContent } from 'src/interfacesModels/exerciseBoxContent';
 
 @Component({
@@ -10,14 +11,25 @@ export class HtmlLanguagePage implements OnInit {
 
   private exercises: exerciseBoxContent[];
 
-  constructor() {
+  constructor(private router: Router) {
 
     this.exercises = [
       {name: 'Introdução', experience: '5' , image:'assets/images/languages/html/html-t.jpg'},
       {name: 'Sintaxe', experience: '5', image:'assets/images/languages/html/html-t.jpg'},
       {name: 'Sintaxe', experience: '7', image:'assets/images/languages/html/html-p.jpg'},
-      {name: 'Elementos Básicos', experience: '5', image:'assets/images/languages/html/html-t.jpg'}
+      {name: 'Elementos', experience: '5', image:'assets/images/languages/html/html-t.jpg'},
+      {name: 'Sintaxe', experience: '5', image:'assets/images/languages/html/html-t.jpg'},
+      {name: 'Sintaxe', experience: '7', image:'assets/images/languages/html/html-p.jpg'},
+      {name: 'Elementos', experience: '5', image:'assets/images/languages/html/html-t.jpg'},
+      {name: 'Elementos', experience: '5', image:'assets/images/languages/html/html-t.jpg'},
+      {name: 'Sintaxe', experience: '5', image:'assets/images/languages/html/html-t.jpg'},
+      {name: 'Sintaxe', experience: '7', image:'assets/images/languages/html/html-p.jpg'},
+      {name: 'Elementos', experience: '5', image:'assets/images/languages/html/html-t.jpg'}
     ];
+  }
+
+  goToBack(){
+    this.router.navigate(["home"]);
   }
 
   ngOnInit() {

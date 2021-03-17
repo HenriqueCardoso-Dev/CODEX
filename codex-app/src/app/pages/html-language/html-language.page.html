@@ -1,5 +1,9 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
+    <div slot="start" (click)=goToBack() class="backButton">
+      <ion-icon name="arrow-back"></ion-icon>
+    </div> 
+
     <ion-title mode="ios">
       <span>Exercícios</span>
     </ion-title>
@@ -8,6 +12,7 @@
 
 <ion-content>
 
+  <figure><img src="../../../assets/svgs/dev-focus.svg" class="topFigure" alt="Imagem de estudos"></figure>
   <ion-item *ngFor="let exercise of exercises">
   
     <ion-thumbnail slot="start">
@@ -19,6 +24,7 @@
       <ion-icon name="flash"></ion-icon>
       {{exercise.experience}} XP
     </ion-text>
+  
   
   </ion-item>
 

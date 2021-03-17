@@ -27,12 +27,17 @@ export class HomePage implements OnInit {
     });
 
     this.languages = [
-      {name: 'HTML', qtdAulas: '10', image:'assets/images/languages/html/html.jpg'},
-      {name: 'CSS', qtdAulas: '19', image:'assets/images/languages/css/css.jpg'},
-      {name: 'JavaScript', qtdAulas: '9', image:'assets/images/languages/js/js.jpg'},
-      {name: 'PHP', qtdAulas: '15', image:'assets/images/languages/php/php.jpg'}
+      {name: 'HTML', qtdAulas: '10', image:'assets/images/languages/html/html.jpg', page: 'html-language'},
+      {name: 'CSS', qtdAulas: '19', image:'assets/images/languages/css/css.jpg', page: ''},
+      {name: 'JavaScript', qtdAulas: '9', image:'assets/images/languages/js/js.jpg', page: ''},
+      {name: 'PHP', qtdAulas: '15', image:'assets/images/languages/php/php.jpg', page: ''}
     ];
 
+  }
+
+  goToExercisePage(page: string){
+    this.router.navigate([page]);
+    
   }
 
   ngOnInit() {

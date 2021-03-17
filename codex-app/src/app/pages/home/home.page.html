@@ -9,7 +9,7 @@
 <ion-content>
 
   <figure><img src="../../../assets/svgs/online-learning.svg" class="topFigure" alt="Imagem de estudos"></figure>
-  <ion-item *ngFor="let language of languages">
+  <ion-item *ngFor="let language of languages" (click)=goToExercisePage(language.page)>
   
     <ion-thumbnail slot="start">
       <img src="{{language.image}}" />
