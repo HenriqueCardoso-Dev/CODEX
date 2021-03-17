@@ -8,6 +8,12 @@ ion-header{
     --background: #0bb0da;
     //padding-bottom: 115px;
 
+    .perfilButton {
+      padding-right: 15px;
+      font-size: 17pt;
+      color: rgba(255, 255, 255, 0.911);
+    }
+
     ion-title{
       img{
         width: 45px;
