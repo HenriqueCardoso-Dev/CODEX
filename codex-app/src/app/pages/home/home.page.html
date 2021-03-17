@@ -12,6 +12,11 @@
 <ion-content>
 
   <figure><img src="../../../assets/svgs/online-learning.svg" class="topFigure" alt="Imagem de estudos"></figure>
+
+  <ion-text>
+    <h3>Seja bem vindo {{username}}, o que vamos estudar hoje?</h3>
+  </ion-text>
+
   <ion-item *ngFor="let language of languages" (click)=goToExercisePage(language.page)>
   
     <ion-thumbnail slot="start">
