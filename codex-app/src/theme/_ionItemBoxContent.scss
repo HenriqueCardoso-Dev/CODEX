@@ -9,15 +9,16 @@ ion-item {
 
 
     ion-label {
+        position: absolute;
         font-size: 11pt;
         font-weight: bold;
-        color: #2e2e2e;
+        color: #505050;
         margin-bottom: 23px;
-        margin-right: 20px;
     }
     
     ion-thumbnail {
         padding: 0;
+        margin-right: 0;
 
         img {
             --border-radius: 9px 0px 0px 9px;
