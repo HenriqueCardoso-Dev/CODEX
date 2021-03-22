@@ -21,21 +21,49 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'html-language',
-    loadChildren: () => import('./pages/html-language/html-language.module').then( m => m.HtmlLanguagePageModule)
+    path: 'user-perfil',
+    loadChildren: () => import('./pages/user-perfil/user-perfil.module').then( m => m.UserPerfilPageModule)
+  },  {
+    path: 'css-classes',
+    loadChildren: () => import('./pages/languages/css/css-classes/css-classes.module').then( m => m.CssClassesPageModule)
   },
   {
-    path: 'css-language',
-    loadChildren: () => import('./pages/css-language/css-language.module').then( m => m.CssLanguagePageModule)
+    path: 'class1',
+    loadChildren: () => import('./pages/languages/css/css-contents/class1/class1.module').then( m => m.Class1PageModule)
   },
   {
-    path: 'js-language',
-    loadChildren: () => import('./pages/js-language/js-language.module').then( m => m.JsLanguagePageModule)
+    path: 'class2',
+    loadChildren: () => import('./pages/languages/css/css-contents/class2/class2.module').then( m => m.Class2PageModule)
   },
   {
-    path: 'php-language',
-    loadChildren: () => import('./pages/php-language/php-language.module').then( m => m.PhpLanguagePageModule)
+    path: 'class3',
+    loadChildren: () => import('./pages/languages/css/css-contents/class3/class3.module').then( m => m.Class3PageModule)
   },
+  {
+    path: 'html-classes',
+    loadChildren: () => import('./pages/languages/html/html-classes/html-classes.module').then( m => m.HtmlClassesPageModule)
+  },
+  {
+    path: 'class1',
+    loadChildren: () => import('./pages/languages/html/html-contents/class1/class1.module').then( m => m.Class1PageModule)
+  },
+  {
+    path: 'js-classes',
+    loadChildren: () => import('./pages/languages/js/js-classes/js-classes.module').then( m => m.JsClassesPageModule)
+  },
+  {
+    path: 'class1',
+    loadChildren: () => import('./pages/languages/js/js-contents/class1/class1.module').then( m => m.Class1PageModule)
+  },
+  {
+    path: 'php-classes',
+    loadChildren: () => import('./pages/languages/php/php-classes/php-classes.module').then( m => m.PhpClassesPageModule)
+  },
+  {
+    path: 'class1',
+    loadChildren: () => import('./pages/languages/php/php-contents/class1/class1.module').then( m => m.Class1PageModule)
+  },
+
 
 
 
