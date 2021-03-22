@@ -1,9 +1,25 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>css-classes</ion-title>
+    <ion-title mode="ios">
+      <span>Exercícios</span>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <figure class="imageBox">
+    <img src="../../../../../assets/svgs/dev-focus.svg" alt="Dev Focus">
+  </figure>
+
+  <ion-item *ngFor="let class of classes" mode="ios">
+  
+    <ion-thumbnail slot="start">
+      <img src="../../../../../assets/svgs/play-button.svg" class="button"/>
+    </ion-thumbnail>
+
+    <ion-label>{{class.title}}</ion-label>
+    <ion-text >{{class.describe}}</ion-text>
+  
+  </ion-item>
 
 </ion-content>
