@@ -1,3 +1,4 @@
+import { classBoxContent } from 'src/interfacesModels/classBoxContent';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CssClassesPage implements OnInit {
 
-  constructor() { }
+  public classes: classBoxContent[];
 
-  ngOnInit() {
+  constructor() { 
+
+    this.classes = [
+      {id:1, title:'Aula 1', describe:'Aprenda a sintaxe do CSS'}
+    ];
   }
 
+  ngOnInit() {
+    //console.log(this.classes);
+  }
 }

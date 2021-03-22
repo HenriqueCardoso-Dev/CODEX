@@ -5,7 +5,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'css-classes',
     pathMatch: 'full'
   },
   {
@@ -23,7 +23,8 @@ const routes: Routes = [
   {
     path: 'user-perfil',
     loadChildren: () => import('./pages/user-perfil/user-perfil.module').then( m => m.UserPerfilPageModule)
-  },  {
+  },
+  {
     path: 'css-classes',
     loadChildren: () => import('./pages/languages/css/css-classes/css-classes.module').then( m => m.CssClassesPageModule)
   },
