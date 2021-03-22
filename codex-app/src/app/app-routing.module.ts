@@ -5,7 +5,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'css-classes',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
