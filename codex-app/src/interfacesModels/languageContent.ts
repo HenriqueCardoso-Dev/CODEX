@@ -1,5 +1,5 @@
 export interface languageContent {
   title: string;
-  video: string;
+  image: string;
   describe: string;
 }
