@@ -1,5 +1,5 @@
 export interface classBoxContent{
   id: number;
-  title: string;
+  name: string;
   describe: string;
 }

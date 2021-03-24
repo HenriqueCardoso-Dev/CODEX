@@ -1,0 +1,12 @@
+@import 'src/theme/_ionItemBoxContent.scss';
+@import 'src/theme/_mainFontImport.scss';
+@import 'src/theme/_classBox.scss';
+
+ion-header{
+  ion-toolbar{
+    --max-height: 50px;
+    //padding-bottom: 115px;
+  }
+  
+} 
+  

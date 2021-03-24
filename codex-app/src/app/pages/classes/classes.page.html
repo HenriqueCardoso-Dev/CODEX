@@ -1,9 +1,23 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header mode="ios">
+  <ion-toolbar color="primary">
     <ion-title>classes</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="primary" mode="ios">
+
+  <figure><img src="../../../assets/svgs/dev-focus.svg" alt="imagem ilustrativa de uma mulher em um notebook"/></figure>
+
+  <ion-item *ngFor="let class of classes" class="boxContent">
+    <ion-thumbnail slot="start">
+      <img src="../../../assets/svgs/play-button.svg" alt="botão de play" class="button">
+    </ion-thumbnail>
+    <ion-label>
+      {{class.name}}
+    </ion-label>
+    <ion-text>
+      {{class.describe}}
+    </ion-text>
+  </ion-item>
 
 </ion-content>
