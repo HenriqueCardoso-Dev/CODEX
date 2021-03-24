@@ -18,10 +18,10 @@ export class ClassesPage implements OnInit {
   constructor(private router: Router) { 
     this.classes = [
       {id: 1, name:'Aula 01', describe: 'Introdução a linguagem'},
-      {id: 1, name:'Aula 02', describe: 'Introdução a linguagem'},
-      {id: 1, name:'Aula 03', describe: 'Introdução a linguagem'},
-      {id: 1, name:'Aula 04', describe: 'Introdução a linguagem'},
-      {id: 1, name:'Aula 05', describe: 'Introdução a linguagem'}
+      {id: 2, name:'Aula 02', describe: 'Introdução a linguagem'},
+      {id: 3, name:'Aula 03', describe: 'Introdução a linguagem'},
+      {id: 4, name:'Aula 04', describe: 'Introdução a linguagem'},
+      {id: 5, name:'Aula 05', describe: 'Introdução a linguagem'}
     ]
   }
 
