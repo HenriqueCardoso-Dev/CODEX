@@ -1,6 +1,7 @@
 @import 'src/theme/_ionItemBoxContent.scss';
 @import 'src/theme/_mainFontImport.scss';
 @import 'src/theme/_languageBox.scss';
+@import 'src/theme/_backButton.scss';
 
 ion-header{
   ion-toolbar{
@@ -9,7 +10,7 @@ ion-header{
   }
 } 
 
-div{
+div.describe{
   margin: 30px 20px;
   font-size: 10pt;
   text-align: justify;

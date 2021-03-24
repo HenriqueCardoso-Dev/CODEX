@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { classBoxContent } from 'src/interfacesModels/classBoxContent';
 
 @Component({
@@ -14,7 +15,7 @@ export class ClassesPage implements OnInit {
 
   private languageName: string;
 
-  constructor() { 
+  constructor(private router: Router) { 
     this.classes = [
       {id: 1, name:'Aula 01', describe: 'Introdução a linguagem'},
       {id: 1, name:'Aula 02', describe: 'Introdução a linguagem'},
@@ -22,6 +23,14 @@ export class ClassesPage implements OnInit {
       {id: 1, name:'Aula 04', describe: 'Introdução a linguagem'},
       {id: 1, name:'Aula 05', describe: 'Introdução a linguagem'}
     ]
+  }
+
+  goToClassContent() {
+    this.router.navigate(['class-content']);
+  }
+
+  goToHome() {
+    this.router.navigate(['home']);
   }
 
   ngOnInit() {

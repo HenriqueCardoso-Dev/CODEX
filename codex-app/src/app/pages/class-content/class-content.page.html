@@ -1,5 +1,10 @@
 <ion-header class="ion-no-border" mode="ios">
   <ion-toolbar color="primary">
+
+    <div class="backButton" (click)="goToClasses()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </div>
+    
     <ion-title>Aula 1 - HTML</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -8,8 +13,8 @@
 
   <figure><img src="../../../assets/svgs/undraw_web_developer.svg" alt="imagem ilustrativa de uma mulher em um notebook"/></figure>
 
-  <div>
-    <ion-text *ngFor="let describeClass of describeClasses">{{describeClass.describe}}</ion-text>
+  <div class="describe">
+    <ion-text>{{contentDescription}}</ion-text>
   </div>
 
   <ion-item *ngFor="let classContent of classesContent" class="boxContent">

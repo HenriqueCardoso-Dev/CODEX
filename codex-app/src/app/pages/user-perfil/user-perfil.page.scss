@@ -15,12 +15,19 @@ ion-item {
 
   ion-label {
     font-weight: bold;
+    position: absolute;
   }
 
   ion-text {
     font-size: 13pt;
     font-style: italic;
-    position: absolute;
-    margin-left: 23%;
+    // position: absolute;
+    // margin-left: 23%;
+  }
+  .first {
+    margin-left: 60px;
+  }
+  .last {
+    margin-left: 65px;
   }
 }

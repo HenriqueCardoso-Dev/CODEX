@@ -1,5 +1,10 @@
 <ion-header class="ion-no-border" mode="ios">
   <ion-toolbar color="primary">
+
+    <div class="backButton" (click)="goToHome()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </div>
+    
     <ion-title>classes</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -8,7 +13,7 @@
 
   <figure><img src="../../../assets/svgs/dev-focus.svg" alt="imagem ilustrativa de uma mulher em um notebook"/></figure>
 
-  <ion-item *ngFor="let class of classes" class="boxContent">
+  <ion-item *ngFor="let class of classes" class="boxContent" (click)="goToClassContent()">
     <ion-thumbnail slot="start">
       <img src="../../../assets/svgs/play-button.svg" alt="botão de play" class="button">
     </ion-thumbnail>
