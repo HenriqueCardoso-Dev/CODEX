@@ -12,6 +12,8 @@ export class ClassesPage implements OnInit {
 
   private languageId : number;
 
+  private languageName: string;
+
   constructor() { 
     this.classes = [
       {id: 1, name:'Aula 01', describe: 'Introdução a linguagem'},

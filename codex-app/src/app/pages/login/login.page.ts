@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { otherLogin } from 'src/interfacesModels/otherLogin';
 import { NavigationExtras, Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
+import { RegisterPage } from '../register/register.page';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginPage implements OnInit {
 
   public msg: string;
 
-  constructor(private route: Router, public toastActive: ToastController) {
+  constructor(private route: Router, public toastActive: ToastController, private modalCtrl: ModalController) {
 
     this.loginOptions = [
       {
@@ -98,7 +99,9 @@ export class LoginPage implements OnInit {
   }
 
   goToRegister() {
-    this.route.navigate(['register']);
+    this.modalCtrl.create({
+      component: RegisterPage
+    }).then(modal => modal.present());
   }
 
   ngOnInit() {

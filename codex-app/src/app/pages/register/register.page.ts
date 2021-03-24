@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { ToastController, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +15,11 @@ export class RegisterPage implements OnInit {
 
   private msg: string;
 
-  constructor(private route:Router, public toastActive:ToastController) { }
+  constructor (
+    private route:Router, 
+    public toastActive:ToastController,
+    private modalCtrl: ModalController
+  ) { }
 
   async showToast() {
     const toast = await this.toastActive.create({
@@ -27,7 +31,7 @@ export class RegisterPage implements OnInit {
 
 
   goToLogin() {
-    this.route.navigate(['login']);
+    this.modalCtrl.dismiss();
   }
 
   checkDataRegister() {

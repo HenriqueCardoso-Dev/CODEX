@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-perfil',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPerfilPage implements OnInit {
 
-  constructor() { }
+  private user : any;
+
+  constructor(private router: Router) { 
+    this.user = {
+      name: "'nome do usuário'",
+      email: "'e-mail do usuário'",
+    }
+  }
 
   ngOnInit() {
+  }
+
+  goToHome() {
+    this.router.navigate(['home']);
   }
 
 }

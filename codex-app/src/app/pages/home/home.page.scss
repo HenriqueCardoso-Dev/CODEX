@@ -1,11 +1,11 @@
 //imports
-@import 'src/theme/_ionItemBoxContent.scss';
 @import 'src/theme/_mainFontImport.scss';
+@import 'src/theme/_languageBox.scss';
+@import 'src/theme/_userPoints.scss';
 
 ion-header{
   ion-toolbar{
     --max-height: 50px;
-    --background: #0bb0da;
     //padding-bottom: 115px;
 
     .perfilButton {
@@ -14,22 +14,10 @@ ion-header{
       color: rgba(255, 255, 255, 0.911);
     }
 
-    ion-title{
-      img{
-        width: 45px;
-        margin-right: 10px;
-      }
-      span{
-        font-size: 15pt;
-        color: #fff;
-
-      }
-    }
   }
 } 
 
 ion-content {
-  --background: #0bb0da;
 
   figure{
     display: flex;

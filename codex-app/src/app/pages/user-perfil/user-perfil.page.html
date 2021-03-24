@@ -1,9 +1,32 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>user-perfil</ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary" mode="ios">
+
+    <div class="backButton" (click)="goToHome()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </div>
+
+    <ion-title>(username)</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="primary" mode="ios">
+
+  <figure>
+    <img src="../../../assets/svgs/undraw_male_avatar_323b.svg"/>
+  </figure>
+
+  <ion-list color="primary">
+
+    <ion-item color="primary" lines="none">
+      <ion-label>Nome:</ion-label>
+      <ion-text>{{user.name}}</ion-text>
+    </ion-item>
+
+    <ion-item color="primary" lines="none">
+      <ion-label>E-mail:</ion-label>
+      <ion-text>{{user.email}}</ion-text>
+    </ion-item>
+    
+  </ion-list>
 
 </ion-content>

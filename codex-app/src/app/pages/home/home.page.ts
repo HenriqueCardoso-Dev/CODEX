@@ -35,9 +35,13 @@ export class HomePage implements OnInit {
 
   }
 
-  goToExercisePage(page: string){
+  goToExercisePage(page: string) {
     this.router.navigate([page]);
     
+  }
+
+  goToPerfil() {
+    this.router.navigate(['user-perfil']);
   }
 
   ngOnInit() {

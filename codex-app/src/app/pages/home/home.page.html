@@ -1,15 +1,18 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar>
-    <div slot="end" (click)=goToPerfil class="perfilButton">
+<ion-header class="ion-no-border" mode="ios">
+  <ion-toolbar color="primary">
+
+    <div slot="end" (click)=goToPerfil() class="perfilButton">
       <ion-icon name="grid-outline"></ion-icon>
     </div>
-    <ion-title mode="ios">
-      <span></span>
-    </ion-title>
+
+    <div class="userPoints" side="center">
+      <img src="../../../assets/icons/diamond-outline.svg">
+      (points)
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="primary">
 
   <figure><img src="../../../assets/svgs/online-learning.svg" class="topFigure" alt="Imagem de estudos"></figure>
 
@@ -22,10 +25,11 @@
     <ion-thumbnail slot="start">
       <img src="{{language.image}}" />
     </ion-thumbnail>
+    
     <ion-label>{{language.name}}</ion-label>
 
-    <ion-text >
-      <ion-icon name="school-outline"></ion-icon>
+    <ion-text>
+      <img src="../../../assets/icons/school-outline.svg">
       {{language.qtdAulas}} aulas
     </ion-text>
   

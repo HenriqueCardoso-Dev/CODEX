@@ -1,0 +1,26 @@
+@import 'src/theme/_mainFontImport.scss';
+@import 'src/theme/_backButton.scss';
+
+figure {
+  
+  display: flex;
+  justify-content: center;
+  
+  img {
+    width: 130px;
+  }
+}
+
+ion-item {
+
+  ion-label {
+    font-weight: bold;
+  }
+
+  ion-text {
+    font-size: 13pt;
+    font-style: italic;
+    position: absolute;
+    margin-left: 23%;
+  }
+}
