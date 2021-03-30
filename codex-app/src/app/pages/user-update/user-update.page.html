@@ -1,0 +1,39 @@
+<section>
+
+  <ion-header>
+    <ion-toolbar color="primary" mode="ios">
+
+      <div slot="end" class="closeIcon" (click)="closeModal()">
+        <img src="../../../assets/svgs/close-circle-outline.svg"/>
+      </div>
+
+      <ion-title>editar</ion-title>
+    </ion-toolbar>
+  
+  </ion-header>
+  
+  <ion-content color="primary">
+
+    <form #f="ngForm" (ngSubmit)="dataUpdate" class="form">
+      
+      <ion-item>
+        <ion-label position="floating">Nome: <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input type="text" value="{{username}}"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">E-mail: <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input type="email" value="{{user-email}}"></ion-input>
+      </ion-item>
+      
+      <div class="botoes">
+        <ion-button block color="tertiary" type="submit">
+          <ion-text>atualizar</ion-text>
+        </ion-button>
+      </div>
+      
+    </form>
+    
+  </ion-content>
+
+</section>
