@@ -1,0 +1,47 @@
+@import 'src/theme/_mainFontImport.scss';
+@import 'src/theme/_backButton.scss';
+@import 'src/theme/_codeFont.scss';
+@import 'src/theme/_userPoints.scss';
+
+.code {
+  background-color: #282a36;
+  width: 90vw;
+  border-radius: 8px;
+  border: 5px solid #121318;
+  margin: 5% auto 0;
+  padding: 15px;
+  color: #f8f8f2;
+  font-size: 11pt;
+
+  .codeLines {
+    padding: 0;
+    background-color: #00000000;
+    font-size: 11pt;
+  }
+
+  
+}
+.enunciated {
+  width: 90vw;
+  margin: 5% auto;
+  text-align: justify;
+}
+
+ion-list {
+  background-color: #f4f4f400;
+}
+
+.alternative {
+  width: 90vw;
+  height: 45px;
+  margin: 5% auto;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 11pt;
+}
+
+.phpOpenAndClose {
+  color: #ff79c6;
+}
+

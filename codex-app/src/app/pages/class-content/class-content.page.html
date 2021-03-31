@@ -17,7 +17,7 @@
     <ion-text>{{contentDescription}}</ion-text>
   </div>
 
-  <ion-item *ngFor="let classContent of classesContent" class="boxContent">
+  <ion-item *ngFor="let classContent of classesContent" class="boxContent" (click) = "goToExercise()">
 
     <ion-thumbnail slot="start">
       <img src="{{classContent.image}}" alt="linguagem" class="button">

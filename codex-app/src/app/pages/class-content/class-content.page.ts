@@ -26,6 +26,10 @@ export class ClassContentPage implements OnInit {
     this.router.navigate(['classes']);
   }
 
+  goToExercise() {
+    this.router.navigate(['content-exercise']);
+  }
+
   ngOnInit() {
   }
 
