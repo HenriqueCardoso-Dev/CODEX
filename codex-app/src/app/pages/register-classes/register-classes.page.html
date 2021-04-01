@@ -1,0 +1,55 @@
+<ion-header class="ion-no-border" mode="ios">
+  <ion-toolbar color="primary">
+
+    <div class="backButton" (click)="goToHome()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </div>
+    
+    <ion-title>Register Classes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="primary" mode="ios">
+
+  <!-- Form -->
+  <form #f="ngForm" (ngSubmit)="dataUpdate(f)" class="form">
+
+    <ion-item>
+      <ion-label position="floating">Linguagem: <ion-text color="danger">*</ion-text></ion-label>
+      <ion-select>
+        <ion-select-option value="html">HTML</ion-select-option>
+        <ion-select-option value="css">CSS</ion-select-option>
+        <ion-select-option value="php">PHP</ion-select-option>
+        <ion-select-option value="js">JavaScript</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Nome da Aula: <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Descrição da Aula: <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Título do Conteúdo: <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Conteúdo: <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="email"></ion-input>
+    </ion-item>
+
+    <div class="botoes">
+      <ion-button block color="tertiary" type="submit">
+        <ion-text>Registrar</ion-text>
+      </ion-button>
+    </div>
+
+  </form>
+</ion-content>
+

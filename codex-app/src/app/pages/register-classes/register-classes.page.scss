@@ -1,0 +1,23 @@
+@import 'src/theme/_mainFontImport.scss';
+@import 'src/theme/_ionItemInput.scss';
+
+
+ion-select {
+  padding-left: 15px;
+  color: #000;
+}
+
+div.botoes {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.form {
+  margin: 35px 20px 0px;
+
+  ion-button {
+    margin-top: 5px;
+    color: #fff;
+  }
+}

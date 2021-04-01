@@ -40,6 +40,12 @@ const routes: Routes = [
     path: 'user-update',
     loadChildren: () => import('./pages/user-update/user-update.module').then( m => m.UserUpdatePageModule)
   },
+  {
+    path: 'register-classes',
+    loadChildren: () => import('./pages/register-classes/register-classes.module').then( m => m.RegisterClassesPageModule)
+  },
+
+
 
 
 
