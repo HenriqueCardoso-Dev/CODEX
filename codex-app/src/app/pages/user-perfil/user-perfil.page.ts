@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { UserUpdatePage } from '../user-update/user-update.page';
 
@@ -12,11 +12,29 @@ export class UserPerfilPage implements OnInit {
 
   private user : any;
 
-  constructor(private router: Router, private modalCtrl: ModalController) { 
-    this.user = {
-      name: "'nome do usuário'",
-      email: "'e-mail do usuário'",
-    }
+  constructor(
+    private router: Router, 
+    private modalCtrl: ModalController,
+    private recive : ActivatedRoute
+  ) { 
+
+
+    //recebendo dados do navigate;
+    recive.queryParams.subscribe(params => {
+      //convertendo dados JSON
+      if(params && params.special) {
+        let userData = JSON.parse(params.special);
+
+        this.user = {
+          name: userData.name,
+          email: userData.email,
+          nick: userData.username
+        }
+      }
+    });
+
+
+    
   }
 
   ngOnInit() {

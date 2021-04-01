@@ -9,37 +9,40 @@
     <ion-text>
       <h4>Cadastre-se:</h4>
     </ion-text>
+    <form  #f="ngForm" (ngSubmit)="registerNewUser(f)">
 
-    <ion-item>
-      <ion-label position="stacked">Nome:</ion-label>
-      <ion-input [(ngModel)]="nameValue"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="stacked">Username:</ion-label>
-      <ion-input [(ngModel)]="usernameValue"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="stacked">e-mail:</ion-label>
-      <ion-input [(ngModel)]="emailUserValue"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="stacked">Senha:</ion-label>
-      <ion-input [(ngModel)]="passwordUserValue"></ion-input>
-    </ion-item>
-
-    <div class="botoes">
-
-      <ion-button (click)="registerNewUser()">Cadastrar</ion-button>
-
-      <ion-text (click)="goToLogin()">
-        voltar ao login
-      </ion-text>
-
-    </div>
- 
+      <ion-item>
+        <ion-label position="stacked">Nome:</ion-label>
+        <ion-input [(ngModel)]="nameValue" name="nameValue"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="stacked">Username:</ion-label>
+        <ion-input [(ngModel)]="usernameValue" name="usernameValue"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="stacked">e-mail:</ion-label>
+        <ion-input [(ngModel)]="emailUserValue" name="emailUserValue"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="stacked">Senha:</ion-label>
+        <ion-input [(ngModel)]="passwordUserValue" type="password" name="passwordUserValue"></ion-input>
+      </ion-item>
+  
+      <div class="botoes">
+  
+        <ion-button type="submit">Cadastrar</ion-button>
+  
+        <ion-text (click)="goToLogin()">
+          voltar ao login
+        </ion-text>
+  
+      </div>
+   
+    </form>
+    
   </section>
 
 </ion-content>

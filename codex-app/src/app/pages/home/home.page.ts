@@ -14,6 +14,8 @@ export class HomePage implements OnInit {
 
   private languages: languageBoxContent[];
 
+  private navigationExtras: NavigationExtras;
+
   constructor(
     private router : Router,
     private recive : ActivatedRoute
@@ -26,7 +28,24 @@ export class HomePage implements OnInit {
         let userData = JSON.parse(params.special);
         this.username = userData.username;
         this.password = userData.password;
+
+        //Data encapsulation for screen migration
+        let userAcess = {
+          name: userData.name,
+          username: userData.username,
+          email: userData.email,
+          password: userData.password,
+          id: userData.id,
+          userType: userData.userType
+        }
+        this.navigationExtras = {
+          queryParams: {
+            special: JSON.stringify(userAcess)
+          }
+        }
+
       }
+
     });
 
     this.languages = [
@@ -44,7 +63,7 @@ export class HomePage implements OnInit {
   }
 
   goToPerfil() {
-    this.router.navigate(['user-perfil']);
+    this.router.navigate(['user-perfil'], this.navigationExtras);
   }
 
   ngOnInit() {

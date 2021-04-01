@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { otherLogin } from 'src/interfacesModels/otherLogin';
 import { NavigationExtras, Router } from '@angular/router';
 import { ModalController, ToastController } from '@ionic/angular';
 import { RegisterPage } from '../register/register.page';
+import { UserService } from 'src/app/services/api/user.service';
 
 @Component({
   selector: 'app-login',
@@ -11,38 +11,24 @@ import { RegisterPage } from '../register/register.page';
 })
 export class LoginPage implements OnInit {
 
-  private userValue: string = "";
+  private identificator: string = "";
   private passwordValue: string = "";
-
-  private loginOptions: otherLogin[];
 
   public msg: string;
 
-  constructor(private route: Router, public toastActive: ToastController, private modalCtrl: ModalController) {
-
-    this.loginOptions = [
-      {
-        icon: "../../assets/images/logo-google-50px.png",
-        text: "Entrar com o Google"
-      },
-      {
-        icon: "../../assets/images/logo-facebook-50px.jpg",
-        text: "Entrar com o Facebook"
-      },
-      {
-        icon: "../../assets/images/logo-guest-50px.jpg",
-        text: "Entrar como Convidado"
-      }
-    ];
-
-  }
+  constructor(
+    private route: Router, 
+    public toastActive: ToastController, 
+    private modalCtrl: ModalController,
+    private userService: UserService
+  ) {}
 
 
   //Toast Create
   async showToast() {
     const toast = await this.toastActive.create({
       message: `${this.msg}`,
-      duration: 2000
+      duration: 3000
     });
     toast.present();
   }
@@ -51,7 +37,7 @@ export class LoginPage implements OnInit {
   //Acess Functions:
 
   checkCredentialsLength() {
-    if (this.userValue.length == 0 || this.passwordValue.length == 0) {
+    if (this.identificator.length == 0 || this.passwordValue.length == 0) {
 
       this.msg = 'Informe usuário e senha!';
       this.showToast();
@@ -68,34 +54,39 @@ export class LoginPage implements OnInit {
 
     if (this.checkCredentialsLength()) {
 
-      //Data encapsulation for screen migration
-      let userAcess = {
-        username: this.userValue,
-        password: this.passwordValue
-      }
-      let navigationExtras: NavigationExtras = {
-        queryParams: {
-          special: JSON.stringify(userAcess)
-        }
-      }
+      this.userService.login(this.identificator, this.passwordValue).subscribe(response => {
+        if (!response['id_usuario']) {
+        
+          this.msg = response['status'];
+          this.showToast();
+        
+        } else {
+          
+          //Data encapsulation for screen migration
+          let userAcess = {
+            name: response['nome'],
+            username: response['nick'],
+            email: response['email'],
+            password: this.passwordValue,
+            id: response['id_usuario'],
+            userType: response['tipo_usuario']
+          }
+          let navigationExtras: NavigationExtras = {
+            queryParams: {
+              special: JSON.stringify(userAcess)
+            }
+          }
 
-      //validating login
-      if (this.userValue === "root" && this.passwordValue === "123") {
-        this.route.navigate(['home'], navigationExtras);
-        this.msg = 'Usuário logado com sucesso';
-        this.showToast();
-      } else {
-        this.msg = 'Dados de usuário incorretos ou inexistentes';
-        this.showToast();
-      }
+          this.route.navigate(['home'], navigationExtras);
+          this.msg = 'Usuário logado com sucesso';
+          this.showToast();
+        }
+      });
+
+      
 
     }
 
-  }
-
-
-  LogInWithGoogle() {
-    console.log("i'm here!")
   }
 
   goToRegister() {

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 import { ToastController, ModalController } from '@ionic/angular';
+import { UserService } from 'src/app/services/api/user.service';
 
 @Component({
   selector: 'app-register',
@@ -18,13 +20,14 @@ export class RegisterPage implements OnInit {
   constructor (
     private route:Router, 
     public toastActive:ToastController,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private userService: UserService
   ) { }
 
   async showToast() {
     const toast = await this.toastActive.create({
       message: `${this.msg}`,
-      duration: 2000
+      duration: 3000
     });
     toast.present();
   }
@@ -50,19 +53,21 @@ export class RegisterPage implements OnInit {
   
   }
 
-  registerNewUser() {
+  registerNewUser(form: NgForm) {
 
     if (this.checkDataRegister()) {
 
-      //variable for tests
-      let userData = {
-        user: this.usernameValue,
-        email: this.emailUserValue,
-        pass: this.passwordUserValue
-      }
+      const data = form.value;
 
-      //test output
-      console.log(userData)
+      this.userService.registerNewUser(data).subscribe(response => {
+      
+        if (response['id_usuario']) {
+          this.msg = 'usuário cadastrado, agora faça o login para entrar';
+          this.showToast();
+        }
+        this.modalCtrl.dismiss();
+      
+      });
 
     }
 
