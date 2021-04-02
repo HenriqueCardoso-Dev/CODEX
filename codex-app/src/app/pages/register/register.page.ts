@@ -64,8 +64,12 @@ export class RegisterPage implements OnInit {
         if (response['id_usuario']) {
           this.msg = 'usuário cadastrado, agora faça o login para entrar';
           this.showToast();
+          this.modalCtrl.dismiss();
+        } else {
+          this.msg = response['status'];
+          this.showToast();
         }
-        this.modalCtrl.dismiss();
+        
       
       });
 

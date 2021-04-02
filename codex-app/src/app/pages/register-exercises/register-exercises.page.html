@@ -5,7 +5,7 @@
       <ion-icon name="arrow-back-outline"></ion-icon>
     </div>
     
-    <ion-title>Registrar Aulas</ion-title>
+    <ion-title>Registrar Exercícios</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -25,23 +25,30 @@
     </ion-item>
     
     <ion-item>
-      <ion-label position="stacked">Nome da Aula: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input type="text" name="className"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="stacked">Descrição da Aula: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input type="text" name="classDescription"></ion-input>
+      <ion-label position="stacked">Aula: <ion-text color="danger">*</ion-text></ion-label>
+      <ion-select name="class">
+        <ion-select-option value="1">Aula 1</ion-select-option>
+        <ion-select-option value="2">Aula 2</ion-select-option>
+        <ion-select-option value="3">Aula 3</ion-select-option>
+      </ion-select>
     </ion-item>
     
     <ion-item>
-      <ion-label position="stacked">Título do Conteúdo: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input type="text" name="contentTitle"></ion-input>
+      <ion-label position="stacked">Título do Exercício: <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text" name="exerTitle"></ion-input>
     </ion-item>
 
     <ion-item class="textarea">
-      <ion-label position="stacked">Conteúdo: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-textarea name="content"></ion-textarea>
+      <ion-label position="stacked">Enunciado do Exercício: <ion-text color="danger">*</ion-text></ion-label>
+      <ion-textarea name="exerDescription"></ion-textarea>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="stacked">Tipo do Exercício: <ion-text color="danger">*</ion-text></ion-label>
+      <ion-select name="typeExercise">
+        <ion-select-option value="s">Standard</ion-select-option>
+        <ion-select-option value="p">Premium</ion-select-option>
+      </ion-select>
     </ion-item>
 
     <div class="botoes">
@@ -52,4 +59,3 @@
 
   </form>
 </ion-content>
-

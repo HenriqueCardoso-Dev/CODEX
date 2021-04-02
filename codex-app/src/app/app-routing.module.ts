@@ -5,7 +5,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'register-languages',
     pathMatch: 'full'
   },
   {
@@ -44,6 +44,16 @@ const routes: Routes = [
     path: 'register-classes',
     loadChildren: () => import('./pages/register-classes/register-classes.module').then( m => m.RegisterClassesPageModule)
   },
+  {
+    path: 'register-exercises',
+    loadChildren: () => import('./pages/register-exercises/register-exercises.module').then( m => m.RegisterExercisesPageModule)
+  },
+  {
+    path: 'register-languages',
+    loadChildren: () => import('./pages/register-languages/register-languages.module').then( m => m.RegisterLanguagesPageModule)
+  },
+
+
 
 
 

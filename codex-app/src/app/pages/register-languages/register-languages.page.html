@@ -1,0 +1,43 @@
+<ion-header class="ion-no-border" mode="ios">
+  <ion-toolbar color="primary">
+
+    <div class="backButton" (click)="goToHome()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </div>
+    
+    <ion-title>Registrar Linguagens</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="primary" mode="ios">
+
+  <!-- Form -->
+  <form #f="ngForm" (ngSubmit)="dataUpdate(f)" class="form">
+    
+    <ion-item>
+      <ion-label position="stacked">Nome da Linguagem: <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text" name="languageName"></ion-input>
+    </ion-item>
+
+    <ion-item class="textarea">
+      <ion-label position="stacked">Descrição da Linguagem: <ion-text color="danger">*</ion-text></ion-label>
+      <ion-textarea name="languageDescription"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Tipo da Linguagem: <ion-text color="danger">*</ion-text></ion-label>
+      <ion-select name="languageType">
+        <ion-select-option value="f">Front-End</ion-select-option>
+        <ion-select-option value="b">Back-End</ion-select-option>
+        <ion-select-option value="h">Híbrida</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="botoes">
+      <ion-button block color="tertiary" type="submit">
+        <ion-text>Registrar</ion-text>
+      </ion-button>
+    </div>
+
+  </form>
+</ion-content>
