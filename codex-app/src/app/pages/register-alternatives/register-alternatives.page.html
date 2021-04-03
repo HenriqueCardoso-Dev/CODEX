@@ -5,7 +5,7 @@
       <ion-icon name="arrow-back-outline"></ion-icon>
     </div>
     
-    <ion-title>Registrar Exercícios</ion-title>
+    <ion-title>Registrar Aulas</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -32,22 +32,26 @@
         <ion-select-option value="3">Aula 3</ion-select-option>
       </ion-select>
     </ion-item>
-    
+
     <ion-item>
-      <ion-label position="stacked">Título do Exercício: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input type="text" name="exerTitle" maxlength="30"></ion-input>
+      <ion-label position="stacked">Exercício: <ion-text color="danger">*</ion-text></ion-label>
+      <ion-select name="exercise">
+        <ion-select-option value="1">exercício 1</ion-select-option>
+        <ion-select-option value="2">exercício 2</ion-select-option>
+        <ion-select-option value="3">exercício 3</ion-select-option>
+      </ion-select>
     </ion-item>
 
     <ion-item class="textarea">
-      <ion-label position="stacked">Enunciado do Exercício: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-textarea name="exerDescription"></ion-textarea>
+      <ion-label position="stacked">Texto da Alternativa: <ion-text color="danger">*</ion-text></ion-label>
+      <ion-textarea name="alterText"></ion-textarea>
     </ion-item>
-    
+
     <ion-item>
-      <ion-label position="stacked">Tipo do Exercício: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-select name="typeExercise">
-        <ion-select-option value="s">Standard</ion-select-option>
-        <ion-select-option value="p">Premium</ion-select-option>
+      <ion-label position="stacked">Tipo da Alternativa: <ion-text color="danger">*</ion-text></ion-label>
+      <ion-select name="alterType">
+        <ion-select-option value="1">Certo</ion-select-option>
+        <ion-select-option value="2">Errado</ion-select-option>
       </ion-select>
     </ion-item>
 
