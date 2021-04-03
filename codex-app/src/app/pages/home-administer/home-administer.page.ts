@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-administer',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeAdministerPage implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit() {
+  }
+
+  goToClassRegister() {
+    this.router.navigate(['register-classes']);
+  }
+
+  goToLanguageRegister() {
+    this.router.navigate(['register-languages']);
+  }
+
+  goToExerciseRegister() {
+    this.router.navigate(['register-exercises']);
+  }
+
+  goToAlterRegister() {
+    this.router.navigate(['register-alternatives']);
   }
 
 }
