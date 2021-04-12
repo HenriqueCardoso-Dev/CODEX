@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-languages',
@@ -8,13 +7,9 @@ import { Router } from '@angular/router';
 })
 export class RegisterLanguagesPage implements OnInit {
 
-  constructor(private router : Router) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  goToDash() {
-    this.router.navigate(['home-administer']);
   }
 
 }

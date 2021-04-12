@@ -1,25 +1,19 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar mode='ios' color="primary">
+  <ion-toolbar mode='ios'>
 
     <div class="backButton" (click)="goToHome()">
       <ion-icon name="home"></ion-icon>
     </div>
 
-    <ion-title>Dashboard</ion-title>
+    <ion-title>Painel de Controle</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content mode="ios" color="primary">
-
-  <figure>
-    <img src="../../../assets/svgs/undraw_dashboard_nklg.svg"/>
-  </figure>
-
+<ion-content mode="ios">
   <section>
-
     <div class="actionsGrid">
       <!-- bloco -->
-      <ion-card (click)="goToLanguageRegister()">
+      <ion-card>
         <ion-card-header>
           <img src="../../../assets/svgs/server-cluster.svg" alt="">
         </ion-card-header>
@@ -30,7 +24,7 @@
       </ion-card>
 
       <!-- bloco -->
-      <ion-card (click)="goToClassRegister()">
+      <ion-card>
         <ion-card-header>
           <img src="../../../assets/svgs/teaching.svg" alt="">
         </ion-card-header>
@@ -41,7 +35,7 @@
       </ion-card>
 
       <!-- bloco -->
-      <ion-card (click)="goToExerciseRegister()">
+      <ion-card>
         <ion-card-header>
           <img src="../../../assets/svgs/Setup_re.svg" alt="">
         </ion-card-header>
@@ -52,9 +46,9 @@
       </ion-card>
 
       <!-- bloco -->
-      <ion-card (click)="goToAlterRegister()">
+      <ion-card>
         <ion-card-header>
-          <img src="../../../assets/svgs/undraw_my_answer_iw6k.svg" alt="">
+          <img src="../../../assets/svgs/my_answer.svg" alt="">
         </ion-card-header>
       
         <ion-card-content>
@@ -62,6 +56,25 @@
         </ion-card-content>
       </ion-card>
 
+      <!-- <ion-card>
+        <ion-card-header>
+          <img src="../../../assets/svgs/Setup_re.svg" alt="">
+        </ion-card-header>
+      
+        <ion-card-content>
+          <ion-card-title>Registrar Exercícios</ion-card-title>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header>
+          <img src="../../../assets/svgs/my_answer.svg" alt="">
+        </ion-card-header>
+      
+        <ion-card-content>
+          <ion-card-title>Registrar Alternativas</ion-card-title>
+        </ion-card-content>
+      </ion-card> -->
     </div>
   </section>
 

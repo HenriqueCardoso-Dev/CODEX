@@ -1,19 +1,15 @@
 <ion-header class="ion-no-border" mode="ios">
   <ion-toolbar color="primary">
 
-    <div class="backButton" (click)="goToDash()">
+    <div class="backButton" (click)="goToHome()">
       <ion-icon name="arrow-back-outline"></ion-icon>
     </div>
     
-    <ion-title>Exercícios</ion-title>
+    <ion-title>Registrar Exercícios</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" color="primary" mode="ios">
-
-  <figure>
-    <img src="../../../assets/svgs/Setup_re.svg" alt="">
-  </figure>
 
   <!-- Form -->
   <form #f="ngForm" (ngSubmit)="dataUpdate(f)" class="form">

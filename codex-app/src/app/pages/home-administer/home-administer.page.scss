@@ -1,11 +1,10 @@
 @import "src/theme/_backButton.scss";
 
 section {
-
   background-color: #4c0b8a;
   display: flex;
   align-items: center;
-  justify-content: center;
+  height: 100%;
 
   .actionsGrid {
     display: grid;
