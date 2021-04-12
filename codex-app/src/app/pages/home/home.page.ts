@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router, ActivatedRoute } from '@angular/router';
+import { ToastController } from '@ionic/angular';
+import { LanguageService } from 'src/app/services/api/language.service';
 import { languageBoxContent } from 'src/interfacesModels/languageBoxContent';
 
 @Component({
@@ -7,18 +9,25 @@ import { languageBoxContent } from 'src/interfacesModels/languageBoxContent';
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
+
 export class HomePage implements OnInit {
 
   username: '';
   password: '';
 
-  private languages: languageBoxContent[];
+  public c;
+
+  private languages;
+
+  private msg : string;
 
   private navigationExtras: NavigationExtras;
 
   constructor(
     private router : Router,
-    private recive : ActivatedRoute
+    private recive : ActivatedRoute,
+    private langService : LanguageService,
+    public toastActive: ToastController
   ) { 
 
     //recebendo dados do navigate;
@@ -48,13 +57,25 @@ export class HomePage implements OnInit {
 
     });
 
-    this.languages = [
-      {name: 'HTML', qtdAulas: '10', image:'assets/images/languages/html/html.jpg', id: 1},
+    
+
+
+    /* this.languages = [
+      {name: '', qtdAulas: '10', image:'assets/images/languages/html/html.jpg', id: 1},
       {name: 'CSS', qtdAulas: '19', image:'assets/images/languages/css/css.jpg', id: 2},
       {name: 'JavaScript', qtdAulas: '9', image:'assets/images/languages/js/js.jpg', id: 3},
       {name: 'PHP', qtdAulas: '15', image:'assets/images/languages/php/php.jpg', id: 4}
-    ];
+    ]; */
 
+  }
+
+  //Toast Create
+  async showToast() {
+    const toast = await this.toastActive.create({
+      message: `${this.msg}`,
+      duration: 3000
+    });
+    toast.present();
   }
 
   goToClasses(language: number) {
@@ -67,6 +88,14 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
+    this.langService.getAllLanguages().subscribe(response => {
+      if(!response[0].nome) {
+        this.msg = response['status'];
+        this.showToast();
+      } else {
+        this.languages = response;
+      }
+    });
   }
 
 }

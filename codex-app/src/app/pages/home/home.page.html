@@ -20,13 +20,13 @@
     <h3>Seja bem vindo {{username}}, o que vamos estudar hoje?</h3>
   </ion-text>
 
-  <ion-item *ngFor="let language of languages" (click)=goToClasses(language.id) class="boxContent">
+  <ion-item *ngFor="let language of languages" (click)=goToClasses(language.id_linguagem) class="boxContent">
   
     <ion-thumbnail slot="start">
       <img src="{{language.image}}" />
     </ion-thumbnail>
     
-    <ion-label>{{language.name}}</ion-label>
+    <ion-label>{{language.nome}}</ion-label>
 
     <ion-text>
       <img src="../../../assets/icons/school-outline.svg">
