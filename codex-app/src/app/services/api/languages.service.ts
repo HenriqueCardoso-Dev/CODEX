@@ -11,7 +11,7 @@ export class LanguagesService {
     this.url = "http://localhost/CodexApi/languages";
   }
 
-  postLanguage(data: any){
+  postLanguage(data){
     return this.http.post(this.url, data);
   }
 }

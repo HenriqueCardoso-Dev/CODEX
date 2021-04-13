@@ -20,17 +20,17 @@
     
     <ion-item>
       <ion-label position="stacked">Nome da Linguagem: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input type="text" name="languageName"></ion-input>
+      <ion-input type="text" name="languageName" [ngModel]="languageName"></ion-input>
     </ion-item>
 
     <ion-item class="textarea">
       <ion-label position="stacked">Descrição da Linguagem: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-textarea name="languageDescription" maxlength="30"></ion-textarea>
+      <ion-textarea name="languageDescription" [ngModel]="languageDescription" maxlength="30"></ion-textarea>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Tipo da Linguagem: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-select name="languageType">
+      <ion-select name="languageType" [ngModel]="languageType">
         <ion-select-option value="f">Front-End</ion-select-option>
         <ion-select-option value="b">Back-End</ion-select-option>
         <ion-select-option value="h">Híbrida</ion-select-option>

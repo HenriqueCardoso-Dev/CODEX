@@ -11,7 +11,7 @@ import { LanguagesService } from 'src/app/services/api/languages.service';
 })
 export class RegisterLanguagesPage implements OnInit {
 
-  private msg: string;
+  public msg: string;
 
   constructor(
     private router : Router,
@@ -36,16 +36,28 @@ export class RegisterLanguagesPage implements OnInit {
   }
 
   langRegister(form: NgForm){
+
     const data = form.value;
+    
     this.langService.postLanguage(data).subscribe(response => {
+
+
+      console.log(response);
+    
       if (response['id_linguagem']) {
+  
         this.msg = 'Linguagem cadastrada com sucesso!';
         this.showToast();
+        this.router.navigate(['home-administer']);
+  
       }else{
+  
         this.msg = response['status'];
         this.showToast();
+  
       }
     });
+  
   }
 
 
