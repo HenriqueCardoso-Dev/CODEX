@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
+import { LanguagesService } from 'src/app/services/api/languages.service';
 
 @Component({
   selector: 'app-register-languages',
@@ -8,7 +11,22 @@ import { Router } from '@angular/router';
 })
 export class RegisterLanguagesPage implements OnInit {
 
-  constructor(private router : Router) { }
+  private msg: string;
+
+  constructor(
+    private router : Router,
+    private langService: LanguagesService,
+    public toastActive: ToastController
+  ) { }
+
+  //Toast Create
+  async showToast() {
+    const toast = await this.toastActive.create({
+      message: `${this.msg}`,
+      duration: 3000
+    });
+    toast.present();
+  }
 
   ngOnInit() {
   }
@@ -16,5 +34,21 @@ export class RegisterLanguagesPage implements OnInit {
   goToDash() {
     this.router.navigate(['home-administer']);
   }
+
+  langRegister(form: NgForm){
+    const data = form.value;
+    this.langService.postLanguage(data).subscribe(response => {
+      if (response['id_linguagem']) {
+        this.msg = 'Linguagem cadastrada com sucesso!';
+        this.showToast();
+      }else{
+        this.msg = response['status'];
+        this.showToast();
+      }
+    });
+  }
+
+
+
 
 }
