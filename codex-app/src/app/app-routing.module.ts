@@ -5,7 +5,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'home-administer',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {

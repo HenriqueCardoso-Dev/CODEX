@@ -14,4 +14,8 @@ export class LanguagesService {
   postLanguage(data){
     return this.http.post(this.url, data);
   }
+
+  getAll() {
+    return this.http.get(this.url);
+  }
 }

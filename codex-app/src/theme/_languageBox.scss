@@ -29,16 +29,16 @@
   }
 
   ion-text {
-    display: flex;
-    align-items: center;
-    font-size: 10pt;
+    position: absolute;
+    margin-left: 10px;
+    font-size: 0.8rem;
     margin-top: 23px;
     font-weight: bold;
-    color: #646464;
+    color: #757575;
 
-    img {
+    /* img {
       width: 16px;
       margin-right: 3px;
-    }
+    } */
   }
 }

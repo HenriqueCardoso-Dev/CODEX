@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router, ActivatedRoute } from '@angular/router';
+import { LanguagesService } from 'src/app/services/api/languages.service';
 import { languageBoxContent } from 'src/interfacesModels/languageBoxContent';
 
 @Component({
@@ -12,13 +13,14 @@ export class HomePage implements OnInit {
   username: '';
   password: '';
 
-  private languages: languageBoxContent[];
+  private languages;
 
   private navigationExtras: NavigationExtras;
 
   constructor(
     private router : Router,
-    private recive : ActivatedRoute
+    private recive : ActivatedRoute,
+    private langService : LanguagesService
   ) { 
 
     //recebendo dados do navigate;
@@ -48,12 +50,7 @@ export class HomePage implements OnInit {
 
     });
 
-    this.languages = [
-      {name: 'HTML', qtdAulas: '10', image:'assets/images/languages/html/html.jpg', id: 1},
-      {name: 'CSS', qtdAulas: '19', image:'assets/images/languages/css/css.jpg', id: 2},
-      {name: 'JavaScript', qtdAulas: '9', image:'assets/images/languages/js/js.jpg', id: 3},
-      {name: 'PHP', qtdAulas: '15', image:'assets/images/languages/php/php.jpg', id: 4}
-    ];
+    
 
   }
 
@@ -67,6 +64,14 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
+    this.langService.getAll().subscribe(response => {
+    
+      if(response[0].nome) {
+        this.languages = response;
+      }
+
+    
+    })
   }
 
 }
