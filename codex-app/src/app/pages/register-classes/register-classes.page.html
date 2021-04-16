@@ -21,7 +21,7 @@
     <ion-item>
       <ion-label position="stacked">Linguagem: <ion-text color="danger">*</ion-text></ion-label>
       <ion-select name="language" [ngModel]='language'>
-          <ion-select-option *ngFor="let lang of languages" value="lang">
+          <ion-select-option *ngFor="let lang of languages" [value]= "lang.id_linguagem">
             {{lang.nome}}
           </ion-select-option>
       </ion-select>
