@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { UserUpdatePage } from '../user-update/user-update.page';
 
@@ -24,8 +24,9 @@ export class UserPerfilPage implements OnInit {
       //convertendo dados JSON
       if(params && params.special) {
         let userData = JSON.parse(params.special);
-
+        
         this.user = {
+          id : userData.id,
           name: userData.name,
           email: userData.email,
           nick: userData.username
@@ -33,9 +34,9 @@ export class UserPerfilPage implements OnInit {
       }
     });
 
-
-    
   }
+
+  
 
   ngOnInit() {
   }
@@ -45,9 +46,13 @@ export class UserPerfilPage implements OnInit {
   }
 
   goToUpdate() {
-    this.modalCtrl.create({
-      component: UserUpdatePage
-    }).then(modal => modal.present());
+    //encapsular para mandar para edição
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: JSON.stringify(this.user)
+      }
+    }
+    this.router.navigate(['user-update'], navigationExtras)
   }
 
 }

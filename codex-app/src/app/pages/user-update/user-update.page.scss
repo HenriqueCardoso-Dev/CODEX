@@ -1,39 +1,33 @@
 @import 'src/theme/_formLoginAndRegister.scss';
 
-section {
-  height: 50vh;
-  margin-top: 50vh;
+ion-toolbar {
   padding: 0;
-  
-  ion-toolbar {
-    padding: 0;
-    height: 50px;
-    display: flex;
-    align-items: center;
+  height: 55px;
+  display: flex;
+  align-items: center;
 
-    ion-title {
-      font-size: 15pt;
-      font-weight: 500;
-    }
+  ion-title {
+    font-size: 1rem;
+    font-weight: 500;
   }
-
-  .closeIcon {
-    display: flex;
-    align-items: center;
-    padding-right: 5px;
-
-    img {
-      width: 23px;
-    }
-  }
-
-  .form {
-    margin: 22px 20px 0px;
-
-    ion-button {
-      margin-top: 5px;
-      color: #fff;
-    }
-  }
-
 }
+
+.closeIcon {
+  display: flex;
+  align-items: center;
+  padding-right: 5px;
+
+  img {
+    width: 23px;
+  }
+}
+
+.form {
+  margin: 22px 20px 0px;
+
+  ion-button {
+    margin-top: 5px;
+    color: #fff;
+  }
+}
+
