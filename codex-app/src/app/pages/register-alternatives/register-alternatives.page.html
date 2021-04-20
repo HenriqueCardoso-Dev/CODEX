@@ -5,53 +5,52 @@
       <ion-icon name="arrow-back-outline"></ion-icon>
     </div>
     
-    <ion-title>Registrar Aulas</ion-title>
+    <ion-title>Alternativas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" color="primary" mode="ios">
 
   <!-- Form -->
-  <form #f="ngForm" (ngSubmit)="dataUpdate(f)" class="form">
+  <form #f="ngForm" (ngSubmit)="newAlternative(f)" class="form">
 
     <ion-item>
       <ion-label position="stacked">Linguagem: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-select name="language">
-        <ion-select-option value="1">HTML</ion-select-option>
-        <ion-select-option value="2">CSS</ion-select-option>
-        <ion-select-option value="3">PHP</ion-select-option>
-        <ion-select-option value="4">JavaScript</ion-select-option>
+      <ion-select name="language" placeholder="selecione uma linguagem" (ionChange)="fetchClasses($event)" okText="Selecionar" cancelText="Voltar">
+        <ion-select-option *ngFor="let lang of languages" [value]= "lang.id_linguagem">
+          {{lang.nome}}
+        </ion-select-option>
       </ion-select>
     </ion-item>
     
     <ion-item>
       <ion-label position="stacked">Aula: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-select name="class">
-        <ion-select-option value="1">Aula 1</ion-select-option>
-        <ion-select-option value="2">Aula 2</ion-select-option>
-        <ion-select-option value="3">Aula 3</ion-select-option>
+      <ion-select name="class" placeholder="selecione uma aula" (ionChange)="fetchExercises($event)" okText="Selecionar" cancelText="Voltar">
+        <ion-select-option *ngFor="let class of classes" [value]= "class.id_conteudo">
+          {{class.tt_aula}}
+        </ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Exercício: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-select name="exercise">
-        <ion-select-option value="1">exercício 1</ion-select-option>
-        <ion-select-option value="2">exercício 2</ion-select-option>
-        <ion-select-option value="3">exercício 3</ion-select-option>
+      <ion-select name="exercise" [ngModel]="exercise" placeholder="selecione um exercício" okText="Selecionar" cancelText="Voltar">
+        <ion-select-option *ngFor="let exercise of exercises" [value]= "exercise.id_exercicio">
+          {{exercise.tt_exercicio}}
+        </ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item class="textarea">
       <ion-label position="stacked">Texto da Alternativa: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-textarea name="alterText"></ion-textarea>
+      <ion-textarea [ngModel]="alterText" name="alterText"></ion-textarea>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Tipo da Alternativa: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-select name="alterType">
-        <ion-select-option value="1">Certo</ion-select-option>
-        <ion-select-option value="2">Errado</ion-select-option>
+      <ion-select name="alterType" [ngModel]="alterType">
+        <ion-select-option value="1">Certa</ion-select-option>
+        <ion-select-option value="2">Errada</ion-select-option>
       </ion-select>
     </ion-item>
 
