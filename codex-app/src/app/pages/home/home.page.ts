@@ -10,10 +10,11 @@ import { languageBoxContent } from 'src/interfacesModels/languageBoxContent';
 })
 export class HomePage implements OnInit {
 
-  username: '';
-  password: '';
-
   private languages;
+
+  private user;
+
+  private migration;
 
   private navigationExtras: NavigationExtras;
 
@@ -25,14 +26,10 @@ export class HomePage implements OnInit {
 
     //recebendo dados do navigate;
     recive.queryParams.subscribe(params => {
-      //convertendo dados JSON
+      //convertendo dados JSON e encapsulando dados para migração de tela
       if(params && params.special) {
         let userData = JSON.parse(params.special);
-        this.username = userData.username;
-        this.password = userData.password;
-
-        //Data encapsulation for screen migration
-        let userAcess = {
+        this.user = {
           name: userData.name,
           username: userData.username,
           email: userData.email,
@@ -42,7 +39,7 @@ export class HomePage implements OnInit {
         }
         this.navigationExtras = {
           queryParams: {
-            special: JSON.stringify(userAcess)
+            special: JSON.stringify(this.user)
           }
         }
 
@@ -54,8 +51,23 @@ export class HomePage implements OnInit {
 
   }
 
-  goToClasses(language: number) {
-    this.router.navigate(['classes']);
+  goToClasses(language: any) {
+
+    this.migration = {
+      user: this.user,
+      language: {
+        id: language.id_linguagem,
+        name: language.nome
+      }
+    }
+
+    this.navigationExtras = {
+      queryParams: {
+        special: JSON.stringify(this.migration)
+      }
+    }
+
+    this.router.navigate(['classes'], this.navigationExtras);
     
   }
 

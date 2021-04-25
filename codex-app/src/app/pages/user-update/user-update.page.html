@@ -12,21 +12,22 @@
 
 <ion-content color="primary">
 
+
   <form #f="ngForm" (ngSubmit)="dataUpdate(f)" class="form">
     
     <ion-item>
       <ion-label position="floating">Usuário: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input type="text" value="{{user.nick}}"></ion-input>
+      <ion-input type="text" name="usernameValue" [ngModel]="usernameValue" value="{{user.nick}}"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Nome: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input type="text" value="{{user.name}}"></ion-input>
+      <ion-input type="text" name="nameValue" [ngModel]="nameValue" value="{{user.name}}"></ion-input>
     </ion-item>
     
     <ion-item>
       <ion-label position="floating">E-mail: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input type="email" value="{{user.email}}"></ion-input>
+      <ion-input type="email" name="emailUserValue" [ngModel]="emailUserValue" value="{{user.email}}"></ion-input>
     </ion-item>
     
     <div class="botoes">

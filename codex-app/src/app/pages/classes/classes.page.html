@@ -5,24 +5,31 @@
       <ion-icon name="arrow-back-outline"></ion-icon>
     </div>
     
-    <ion-title>classes</ion-title>
+    <ion-title>{{langName}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content color="primary" mode="ios">
 
-  <figure><img src="../../../assets/svgs/dev-focus.svg" alt="imagem ilustrativa de uma mulher em um notebook"/></figure>
+  <figure><img src='{{imageHeader}}'/></figure>
 
-  <ion-item *ngFor="let class of classes" class="boxContent" (click)="goToClassContent()">
+  <ion-item *ngFor="let class of classes" class="boxContent" (click)="goToClassContent(class)">
     <ion-thumbnail slot="start">
       <img src="../../../assets/svgs/play-button.svg" alt="botão de play" class="button">
     </ion-thumbnail>
     <ion-label>
-      {{class.name}}
+      {{class.tt_aula}}
     </ion-label>
     <ion-text>
-      {{class.describe}}
+      {{class.ds_aula}}
     </ion-text>
   </ion-item>
+
+  <div class="errorMessage">
+    <img src="{{imageError}}">
+    <ion-text class="message">
+      {{errorMessage}}
+    </ion-text>
+  </div>
 
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -37,4 +38,9 @@ export class UserUpdatePage implements OnInit {
     this.router.navigate(['user-perfil']);
   }
 
+  dataUpdate(form: NgForm) {
+    const data = form.value;
+    
+    console.log(data);
+  }
 }

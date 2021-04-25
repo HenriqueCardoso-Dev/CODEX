@@ -5,7 +5,7 @@
       <ion-icon name="arrow-back-outline"></ion-icon>
     </div>
     
-    <ion-title>Aula 1 - HTML</ion-title>
+    <ion-title>{{content.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,17 +14,24 @@
   <figure><img src="../../../assets/svgs/undraw_web_developer.svg" alt="imagem ilustrativa de uma mulher em um notebook"/></figure>
 
   <div class="describe">
-    <ion-text>{{contentDescription}}</ion-text>
+    <ion-text>{{content.description}}</ion-text>
   </div>
 
-  <ion-item *ngFor="let classContent of classesContent" class="boxContent" (click) = "goToExercise()">
+  <ion-item *ngFor="let exercise of exercises" class="boxContent" (click) = "goToExercise()">
 
     <ion-thumbnail slot="start">
-      <img src="{{classContent.image}}" alt="linguagem" class="button">
+      <img src="{{exercise.image}}" alt="linguagem" class="button">
     </ion-thumbnail>
 
-    <ion-label>{{classContent.name}}</ion-label>
-    <ion-text>{{classContent.describe}}</ion-text>
+    <ion-label>{{exercise.tt_exercicio}}</ion-label>
+    <ion-text>{{exercise.st_exercicio}}</ion-text>
   </ion-item>
+
+  <div class="errorMessage">
+    <img src="{{imageError}}">
+    <ion-text class="message">
+      {{errorMessage}}
+    </ion-text>
+  </div>
 
 </ion-content>
