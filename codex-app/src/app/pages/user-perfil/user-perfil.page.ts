@@ -29,7 +29,8 @@ export class UserPerfilPage implements OnInit {
           id : userData.id,
           name: userData.name,
           email: userData.email,
-          nick: userData.username
+          nick: userData.username,
+          userType: userData.userType
         }
       }
     });
@@ -42,7 +43,14 @@ export class UserPerfilPage implements OnInit {
   }
 
   goToHome() {
-    this.router.navigate(['home']);
+    const userType = this.user.userType;
+
+    if (userType == 2) {
+      this.router.navigate(['home-administer']);
+    } else {
+      this.router.navigate(['home']);
+    }
+
   }
 
   goToUpdate() {
@@ -53,6 +61,11 @@ export class UserPerfilPage implements OnInit {
       }
     }
     this.router.navigate(['user-update'], navigationExtras)
+  }
+
+  logout() {
+    this.user = "";
+    this.router.navigate(['login']);
   }
 
 }
