@@ -1,39 +1,45 @@
-<section>
+<ion-header>
+  <ion-toolbar color="primary" mode="ios">
 
-  <ion-header>
-    <ion-toolbar color="primary" mode="ios">
+    <div slot="end" class="closeIcon" (click)="closeEdit()">
+      <img src="../../../assets/svgs/close-circle-outline.svg"/>
+    </div>
 
-      <div slot="end" class="closeIcon" (click)="closeModal()">
-        <img src="../../../assets/svgs/close-circle-outline.svg"/>
-      </div>
+    <ion-title>editar</ion-title>
+  </ion-toolbar>
 
-      <ion-title>editar</ion-title>
-    </ion-toolbar>
-  
-  </ion-header>
-  
-  <ion-content color="primary">
+</ion-header>
 
-    <form #f="ngForm" (ngSubmit)="dataUpdate(f)" class="form">
-      
-      <ion-item>
-        <ion-label position="floating">Nome: <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input type="text" value="{{username}}"></ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-label position="floating">E-mail: <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input type="email" value="{{user-email}}"></ion-input>
-      </ion-item>
-      
-      <div class="botoes">
-        <ion-button block color="tertiary" type="submit">
-          <ion-text>atualizar</ion-text>
-        </ion-button>
-      </div>
-      
-    </form>
+<ion-content color="primary">
+
+
+  <form #f="ngForm" (ngSubmit)="dataUpdate(f)" class="form">
     
-  </ion-content>
+    <ion-item>
+      <ion-label position="floating">Usuário: <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text" name="usernameValue" [ngModel]="usernameValue" value="{{user.nick}}"></ion-input>
+    </ion-item>
 
-</section>
+    <ion-item>
+      <ion-label position="floating">Nome: <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text" name="nameValue" [ngModel]="nameValue" value="{{user.name}}"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">E-mail: <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="email" name="emailUserValue" [ngModel]="emailUserValue" value="{{user.email}}"></ion-input>
+    </ion-item>
+    
+    <div class="botoes">
+      <ion-button color="tertiary" type="submit">
+        <ion-text>atualizar</ion-text>
+      </ion-button>
+
+      <ion-button (click)="deleteUser()" color="danger">
+        <ion-text>Deletar</ion-text>
+      </ion-button>
+    </div>
+    
+  </form>
+  
+</ion-content>

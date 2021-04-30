@@ -76,10 +76,16 @@ export class LoginPage implements OnInit {
               special: JSON.stringify(userAcess)
             }
           }
-
-          this.route.navigate(['home'], navigationExtras);
-          this.msg = 'Usuário logado com sucesso';
-          this.showToast();
+          
+          if (response['tipo_usuario'] == 2){
+            this.route.navigate(['home-administer'], navigationExtras);
+            this.msg = 'Usuário logado com sucesso';
+            this.showToast();
+          } else {
+            this.route.navigate(['home'], navigationExtras);
+            this.msg = 'Usuário logado com sucesso';
+            this.showToast();
+          }
         }
       });
 

@@ -40,9 +40,6 @@ export class RegisterLanguagesPage implements OnInit {
     const data = form.value;
     
     this.langService.postLanguage(data).subscribe(response => {
-
-
-      console.log(response);
     
       if (response['id_linguagem']) {
   

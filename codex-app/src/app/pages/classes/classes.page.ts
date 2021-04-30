@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { classBoxContent } from 'src/interfacesModels/classBoxContent';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { ClassesService } from 'src/app/services/api/classes.service';
 
 @Component({
   selector: 'app-classes',
@@ -9,24 +9,60 @@ import { classBoxContent } from 'src/interfacesModels/classBoxContent';
 })
 export class ClassesPage implements OnInit {
 
-  private classes : classBoxContent[];
+  private classes;
+  private langName: string;
+  private errorMessage: string;
+  private imageError: string;
+  private imageHeader: string;
 
-  private languageId : number;
+  private userData;
 
-  private languageName: string;
+  private navigationExtras: NavigationExtras;
 
-  constructor(private router: Router) { 
-    this.classes = [
-      {id: 1, name:'Aula 01', describe: 'Introdução a linguagjjjjjjjj5em'},
-      {id: 2, name:'Aula 02', describe: 'Introdução a linguagem'},
-      {id: 3, name:'Aula 03', describe: 'Introdução a linguagem'},
-      {id: 4, name:'Aula 04', describe: 'Introdução a linguagem'},
-      {id: 5, name:'Aula 05', describe: 'Introdução a linguagem'}
-    ]
+  constructor(
+    private router: Router,
+    private recive: ActivatedRoute,
+    private clasService: ClassesService,
+  )
+  { 
+    recive.queryParams.subscribe( params => {
+      /* console.log(params) */
+      if(params && params.special) {
+        let data = JSON.parse(params.special);
+
+        this.langName = data.language.name;
+        this.userData = data.user;
+
+        this.clasService.getClasses(data.language.id).subscribe(response => {
+          
+          if(response['length'] > 0) {
+            this.classes = response;
+            this.imageHeader = '../../../assets/svgs/dev-focus.svg';
+          } else {
+            this.errorMessage = 'Nenhuma Aula foi encontrada para essa linguagem!';
+            this.imageError = '../../../assets/svgs/undraw_page_not_found_su7k.svg';
+          }
+          
+        })
+      }
+    })
+
   }
 
-  goToClassContent() {
-    this.router.navigate(['class-content']);
+  goToClassContent(classData: any) {
+
+    let migration = {
+      user: this.userData,
+      class: classData
+    }
+    
+    this.navigationExtras = {
+      queryParams: {
+        special: JSON.stringify(migration)
+      }
+    }
+
+    this.router.navigate(['class-content'], this.navigationExtras);
   }
 
   goToHome() {

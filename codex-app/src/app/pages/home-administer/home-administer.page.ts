@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-administer',
@@ -8,9 +8,41 @@ import { Router } from '@angular/router';
 })
 export class HomeAdministerPage implements OnInit {
 
-  constructor(private router : Router) { }
+  private user;
+
+  private navigationExtras: NavigationExtras;
+
+  constructor(
+    private router : Router,
+    private recive : ActivatedRoute
+  )
+  { 
+    recive.queryParams.subscribe(params => {
+
+      if(params && params.special) {
+        let userData = JSON.parse(params.special);
+        this.user = {
+          name: userData.name,
+          username: userData.username,
+          email: userData.email,
+          password: userData.password,
+          id: userData.id,
+          userType: userData.userType
+        }
+        this.navigationExtras = {
+          queryParams: {
+            special: JSON.stringify(this.user)
+          }
+        }
+      }
+    })
+  }
 
   ngOnInit() {
+  }
+
+  goToPerfil() {
+    this.router.navigate(['user-perfil'], this.navigationExtras);
   }
 
   goToClassRegister() {

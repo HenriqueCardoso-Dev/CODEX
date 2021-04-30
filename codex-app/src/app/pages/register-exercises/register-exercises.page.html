@@ -16,40 +16,39 @@
   </figure>
 
   <!-- Form -->
-  <form #f="ngForm" (ngSubmit)="dataUpdate(f)" class="form">
+  <form #f="ngForm" (ngSubmit)="newExercise(f)" class="form">
 
     <ion-item>
       <ion-label position="stacked">Linguagem: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-select name="language">
-        <ion-select-option value="1">HTML</ion-select-option>
-        <ion-select-option value="2">CSS</ion-select-option>
-        <ion-select-option value="3">PHP</ion-select-option>
-        <ion-select-option value="4">JavaScript</ion-select-option>
+      <ion-select name="language" placeholder="selecione uma linguagem" (ionChange)="fetchClasses($event)" okText="Selecionar" cancelText="Voltar">
+        <ion-select-option *ngFor="let lang of languages" [value]= "lang.id_linguagem">
+          {{lang.nome}}
+        </ion-select-option>
       </ion-select>
     </ion-item>
     
     <ion-item>
       <ion-label position="stacked">Aula: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-select name="class">
-        <ion-select-option value="1">Aula 1</ion-select-option>
-        <ion-select-option value="2">Aula 2</ion-select-option>
-        <ion-select-option value="3">Aula 3</ion-select-option>
+      <ion-select name="class" [ngModel]='class' placeholder="selecione uma aula" okText="Selecionar" cancelText="Voltar">
+        <ion-select-option *ngFor="let class of classes" [value]= "class.id_conteudo">
+          {{class.tt_aula}}
+        </ion-select-option>
       </ion-select>
     </ion-item>
     
     <ion-item>
       <ion-label position="stacked">Título do Exercício: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input type="text" name="exerTitle" maxlength="30"></ion-input>
+      <ion-input type="text" name="exerTitle" [ngModel]="exerTitle" maxlength="30"></ion-input>
     </ion-item>
 
     <ion-item class="textarea">
       <ion-label position="stacked">Enunciado do Exercício: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-textarea name="exerDescription"></ion-textarea>
+      <ion-textarea name="exerDescription" [ngModel]="exerDescription"></ion-textarea>
     </ion-item>
     
     <ion-item>
       <ion-label position="stacked">Tipo do Exercício: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-select name="typeExercise">
+      <ion-select name="typeExercise" [ngModel]="typeExercise" okText="Definir" cancelText="Voltar">
         <ion-select-option value="s">Standard</ion-select-option>
         <ion-select-option value="p">Premium</ion-select-option>
       </ion-select>

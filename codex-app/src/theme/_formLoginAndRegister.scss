@@ -50,6 +50,13 @@ div.botoes {
         --background-hover: rgb(20, 179, 34);
         --transition: 3.2s;
 
+        ion-text{
+            font-size: 10pt;
+            font-weight: bold;
+            color: $text-color;
+            margin-top: 5px;
+        }
+
     }
     ion-text{
         font-size: 9pt;

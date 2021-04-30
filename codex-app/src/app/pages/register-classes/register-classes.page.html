@@ -16,36 +16,35 @@
   </figure>
 
   <!-- Form -->
-  <form #f="ngForm" (ngSubmit)="dataUpdate(f)" class="form">
+  <form #f="ngForm" (ngSubmit)="registerClasses(f)" class="form">
 
     <ion-item>
       <ion-label position="stacked">Linguagem: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-select name="language">
-        <ion-select-option value="1">HTML</ion-select-option>
-        <ion-select-option value="2">CSS</ion-select-option>
-        <ion-select-option value="3">PHP</ion-select-option>
-        <ion-select-option value="4">JavaScript</ion-select-option>
+      <ion-select name="language" [ngModel]='language'>
+        <ion-select-option *ngFor="let lang of languages" [value]= "lang.id_linguagem">
+          {{lang.nome}}
+        </ion-select-option>
       </ion-select>
     </ion-item>
     
     <ion-item>
       <ion-label position="stacked">Nome da Aula: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input type="text" name="className" maxlength="30"></ion-input>
+      <ion-input type="text" name="className" maxlength="30" [ngModel]="className"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Descrição da Aula: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input type="text" name="classDescription" maxlength="30"></ion-input>
+      <ion-input type="text" name="classDescription" maxlength="30"[ngModel]="classDescription"></ion-input>
     </ion-item>
     
     <ion-item>
       <ion-label position="stacked">Título do Conteúdo: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input type="text" name="contentTitle" maxlength="30"></ion-input>
+      <ion-input type="text" name="contentTitle" maxlength="30"[ngModel]="contentTitle"></ion-input>
     </ion-item>
 
     <ion-item class="textarea">
       <ion-label position="stacked">Conteúdo: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-textarea name="content"></ion-textarea>
+      <ion-textarea name="content"[ngModel]="content"></ion-textarea>
     </ion-item>
 
     <div class="botoes">

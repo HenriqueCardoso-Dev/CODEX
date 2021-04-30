@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-update',
@@ -8,13 +9,38 @@ import { ModalController } from '@ionic/angular';
 })
 export class UserUpdatePage implements OnInit {
 
-  constructor(private modalCtrl: ModalController) { }
+  private user : any;
+
+  constructor(
+    private router : Router,
+    private recive : ActivatedRoute
+  ) {
+    //recebendo dados do navigate;
+    recive.queryParams.subscribe(params => {
+      //convertendo dados JSON
+      if(params && params.special) {
+        let userData = JSON.parse(params.special);
+        
+        this.user = {
+          id : userData.id,
+          name: userData.name,
+          email: userData.email,
+          nick: userData.nick
+        }
+      }
+    });
+  }
 
   ngOnInit() {
   }
 
-  closeModal() {
-    this.modalCtrl.dismiss();
+  closeEdit() {
+    this.router.navigate(['user-perfil']);
   }
 
+  dataUpdate(form: NgForm) {
+    const data = form.value;
+    
+    console.log(data);
+  }
 }

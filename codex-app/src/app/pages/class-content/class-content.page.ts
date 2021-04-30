@@ -1,6 +1,6 @@
-import { classContentBox, describeClassContent,} from 'src/interfacesModels/classContentPage';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ExercisesService } from 'src/app/services/api/exercises.service';
 
 @Component({
   selector: 'app-class-content',
@@ -9,17 +9,41 @@ import { Router } from '@angular/router';
 })
 export class ClassContentPage implements OnInit {
 
-  private classesContent : classContentBox[];
-  private contentDescription : string;
+  private exercises;
+  private content;
+  private userData;
+  private errorMessage: string;
+  private imageError: string;
 
-  constructor(private router: Router) { 
-    this.contentDescription = "Seja Bem-Vindo a primeira aula de HTML. Na aula de hoje estaremos vendo uma introdução da linguagem e sua sintaxe.";
-    
-    this.classesContent = [
-      {id: 1, name:'Exercício 01', describe: 'Introdução a linguagem', image: 'assets/images/languages/html/html-t.jpg'},
-      {id: 2, name:'Exercício 02', describe: 'Introdução a sintaxe', image: 'assets/images/languages/html/html-t.jpg'},
-      {id: 3, name:'Exercício 03', describe: 'Revisão da aula', image: 'assets/images/languages/html/html-p.jpg'}
-    ]
+  constructor(
+    private router: Router,
+    private recive: ActivatedRoute,
+    private exerService: ExercisesService
+  ) 
+  {    
+
+    recive.queryParams.subscribe(params => {
+      if(params && params.special) {
+        let recive = JSON.parse(params.special);
+
+        this.userData = recive.user;
+        this.exerService.getExercisesFromClass(recive.class.id_conteudo).subscribe(response => {
+          if(response['length'] > 0) {
+            this.exercises = response;
+          } else {
+            this.errorMessage = 'Nenhum exercício foi cadastrado para essa aula ainda!';
+            this.imageError = '../../../assets/svgs/undraw_page_not_found_su7k.svg';
+          }
+        })
+
+
+
+        this.content = {
+          description: recive.class.ds_conteudo,
+          title: recive.class.tt_conteudo
+        }
+      }
+    })
   }
 
   goToClasses(){

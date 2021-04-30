@@ -1,0 +1,16 @@
+.errorMessage{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10vh;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 70vw;
+  }
+
+  ion-text{
+    font-size: 1rem;
+    padding: 15px 20px;
+    text-align: center;
+  }
+}

@@ -1,5 +1,19 @@
 @import "src/theme/_backButton.scss";
 
+ion-header{
+  ion-toolbar{
+    --max-height: 50px;
+    //padding-bottom: 115px;
+
+    .perfilButton {
+      padding-right: 15px;
+      font-size: 17pt;
+      color: rgba(255, 255, 255, 0.911);
+    }
+
+  }
+} 
+
 section {
 
   background-color: #4c0b8a;
