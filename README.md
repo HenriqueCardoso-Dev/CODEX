@@ -28,7 +28,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/HenriqueCardoso-Dev/CODEX">
     <img src="codex-app/src/assets/codex-icons/logo.png" alt="Logo" width="150" height="150">
   </a>
 
@@ -37,14 +37,14 @@
   <p align="center">
     Uma nova maneira de ver o inicio de uma aventura!
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/HenriqueCardoso-Dev"><strong>Explore os documentos »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/HenriqueCardoso-Dev/CODEX">View Demo</a>
+    <a href="https://github.com/HenriqueCardoso-Dev/CODEX">Ver demonstração</a>
     ·
-    <a href="https://github.com/HenriqueCardoso-Dev/CODEX/issues">Report Bug</a>
+    <a href="https://github.com/HenriqueCardoso-Dev/CODEX/issues">Reportar Bug</a>
     ·
-    <a href="https://github.com/HenriqueCardoso-Dev/CODEX/issues">Request Feature</a>
+    <a href="https://github.com/HenriqueCardoso-Dev/CODEX/issues">Solicitar Recurso</a>
   </p>
 </p>
 
