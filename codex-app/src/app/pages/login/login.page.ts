@@ -3,6 +3,7 @@ import { NavigationExtras, Router } from '@angular/router';
 import { ModalController, ToastController } from '@ionic/angular';
 import { RegisterPage } from '../register/register.page';
 import { UserService } from 'src/app/services/api/user.service';
+import { ScoreService } from 'src/app/services/api/score.service';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ export class LoginPage implements OnInit {
 
   private identificator: string = "";
   private passwordValue: string = "";
+  private userScore;
 
   public msg: string;
 
@@ -20,7 +22,8 @@ export class LoginPage implements OnInit {
     private route: Router, 
     public toastActive: ToastController, 
     private modalCtrl: ModalController,
-    private userService: UserService
+    private userService: UserService,
+    private scoreService: ScoreService
   ) {}
 
 
@@ -61,6 +64,8 @@ export class LoginPage implements OnInit {
           this.showToast();
         
         } else {
+
+          this.userScore = this.scoreService.getUserScore(response['id_usuario']);
           
           //Data encapsulation for screen migration
           let userAcess = {
@@ -69,7 +74,8 @@ export class LoginPage implements OnInit {
             email: response['email'],
             password: this.passwordValue,
             id: response['id_usuario'],
-            userType: response['tipo_usuario']
+            userType: response['tipo_usuario'],
+            userScore: this.userScore['user_score']
           }
           let navigationExtras: NavigationExtras = {
             queryParams: {

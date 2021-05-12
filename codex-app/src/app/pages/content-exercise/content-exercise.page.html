@@ -5,7 +5,7 @@
       <ion-icon name="arrow-back-outline"></ion-icon>
     </div>
 
-    <ion-title>PHP - 003</ion-title>
+    <ion-title>{{exercise.tt_exercicio}}</ion-title>
 
     <div slot="end" class="userPoints">
       <img src="../../../assets/icons/diamond-outline.svg">
@@ -15,58 +15,38 @@
 </ion-header>
 
 <ion-content color="primary">
-  <section>
 
-    <div class="code">
-      <ion-text>
-        
-        <span class="phpOpenAndClose">{{beginCode}}</span>
-        
-        <ion-item lines="none" color="medium" class="codeLines" *ngFor="let code of codeContent">
+  <!-- <div class="code">
+    <ion-text>
       
-          <span class="codeContent">{{code.line}}</span>
+      <span class="phpOpenAndClose">{{beginCode}}</span>
+      
+      <ion-item lines="none" color="medium" class="codeLines" *ngFor="let code of codeContent">
+    
+        <span class="codeContent">{{code.line}}</span>
 
+      </ion-item>
+    
+      <span class="phpOpenAndClose">{{endCode}}</span>
+    
+    </ion-text>
+  </div> -->
+
+  <div class="enunciated">
+    <ion-text>
+      {{exercise.ds_exercicio}}
+    </ion-text>
+  </div>
+
+  <div>
+      <ion-radio-group>
+
+        <ion-item class="alternative" mode='md' *ngFor="let alternative of optionsText">
+          <ion-label>{{alternative.ds_alternativa}}</ion-label>
+          <ion-radio slot="start" [value]="alternative.id_alternativa"></ion-radio>
         </ion-item>
-      
-        <span class="phpOpenAndClose">{{endCode}}</span>
-      
-      </ion-text>
-    </div>
+    
+      </ion-radio-group>
+  </div>
 
-    <div class="enunciated">
-      <ion-text>
-        {{enunciated}}
-      </ion-text>
-    </div>
-
-    <div>
-      <ion-list>
-        <ion-radio-group>
-
-          <ion-item class="alternative" mode='md'>
-            <ion-label>criação da estrutura do PHP.</ion-label>
-            <ion-radio slot="start" value="cord"></ion-radio>
-          </ion-item>
-      
-          <ion-item class="alternative" mode='md'>
-            <ion-label>exibição de texto em tela.</ion-label>
-            <ion-radio slot="start" value="duesenberg"></ion-radio>
-          </ion-item>
-      
-          <ion-item class="alternative" mode='md'>
-            <ion-label>exibiçao de dados em tela.</ion-label>
-            <ion-radio slot="start" value="hudson"></ion-radio>
-          </ion-item>
-      
-          <ion-item class="alternative" mode='md'>
-            <ion-label>consulta ao banco de dados</ion-label>
-            <ion-radio slot="start" value="packard"></ion-radio>
-          </ion-item>
-      
-        </ion-radio-group>
-      </ion-list>
-    </div>
-
-    <ion-checkbox disabled checked></ion-checkbox>
-  </section>
 </ion-content>

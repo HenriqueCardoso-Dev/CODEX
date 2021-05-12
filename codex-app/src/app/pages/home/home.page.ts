@@ -35,7 +35,8 @@ export class HomePage implements OnInit {
           email: userData.email,
           password: userData.password,
           id: userData.id,
-          userType: userData.userType
+          userType: userData.userType,
+          userScore: userData.userScore
         }
         this.navigationExtras = {
           queryParams: {

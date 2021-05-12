@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AlternativesService } from 'src/app/services/api/alternatives.service';
 
 @Component({
   selector: 'app-content-exercise',
@@ -8,21 +9,37 @@ import { Router } from '@angular/router';
 })
 export class ContentExercisePage implements OnInit {
 
-  private enunciated = 'No exemplo de código acima o que está ocorrendo?';
+  private exercise;
+  private optionsText;
 
-  private beginCode = '<?php'
+  private userData;
 
-  private codeContent = [
-    {line:'$nome = $_GET["nome"];'},
-    {line:'$data = $_GET["data"];'},
-    {line:'echo "$nome nasceu em $data";'}
-  ];
+  constructor(
+    private router: Router,
+    private recive: ActivatedRoute,
+    private alterService: AlternativesService
+  ) {
 
-  private endCode ='?>'
+    recive.queryParams.subscribe(params => {
+      if(params && params.special) {
+        let data = JSON.parse(params.special);
 
-  constructor(private router: Router) { }
+        this.exercise = data.exercise;
+        this.userData = data.user;
+
+        this.alterService.getAlternatives(data.exercise.id_exercicio).subscribe(response => {
+          this.optionsText = response;
+        })
+        
+      }
+    })
+
+  }
 
   ngOnInit() {
+    
+
+    console.log(this.optionsText);
   }
 
   goToBack() {

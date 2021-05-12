@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { ExercisesService } from 'src/app/services/api/exercises.service';
 
 @Component({
@@ -14,6 +14,8 @@ export class ClassContentPage implements OnInit {
   private userData;
   private errorMessage: string;
   private imageError: string;
+
+  private navigationExtras: NavigationExtras;
 
   constructor(
     private router: Router,
@@ -50,8 +52,19 @@ export class ClassContentPage implements OnInit {
     this.router.navigate(['classes']);
   }
 
-  goToExercise() {
-    this.router.navigate(['content-exercise']);
+  goToExercise(exerciseData : any) {
+    let migration = {
+      user: this.userData,
+      exercise: exerciseData
+    }
+
+    this.navigationExtras = {
+      queryParams: {
+        special: JSON.stringify(migration)
+      }
+    }
+
+    this.router.navigate(['content-exercise'], this.navigationExtras);
   }
 
   ngOnInit() {
