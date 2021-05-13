@@ -5,7 +5,7 @@
 
 
 .enunciated {
-  width: 90vw;
+  width: 85vw;
   margin: 7% auto;
   text-align: justify;
   font-size: 1rem;
@@ -30,5 +30,16 @@
     width: 1rem;
   }
 
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  border-radius: 5px;
+  background-color: #9306b6;
+  height: 7vh;
+  width: 85vw;
 }
 
