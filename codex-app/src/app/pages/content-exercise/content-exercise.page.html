@@ -16,21 +16,9 @@
 
 <ion-content color="primary">
 
-  <!-- <div class="code">
-    <ion-text>
-      
-      <span class="phpOpenAndClose">{{beginCode}}</span>
-      
-      <ion-item lines="none" color="medium" class="codeLines" *ngFor="let code of codeContent">
-    
-        <span class="codeContent">{{code.line}}</span>
-
-      </ion-item>
-    
-      <span class="phpOpenAndClose">{{endCode}}</span>
-    
-    </ion-text>
-  </div> -->
+  <figure>
+    <img src="../../../assets/imagesDefault/Webinar-pana.svg" alt="professor explicando conteúdo">
+  </figure>
 
   <div class="enunciated">
     <ion-text>
@@ -46,7 +34,10 @@
           <ion-radio slot="start" [value]="alternative.id_alternativa"></ion-radio>
         </ion-item>
     
+        
       </ion-radio-group>
+
+      <div class="button">Confirmar</div>
   </div>
 
 </ion-content>

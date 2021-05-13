@@ -83,7 +83,6 @@ export class HomePage implements OnInit {
         this.languages = response;
       }
 
-    
     })
   }
 
