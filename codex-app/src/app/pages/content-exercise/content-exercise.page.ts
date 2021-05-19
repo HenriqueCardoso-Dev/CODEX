@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlternativesService } from 'src/app/services/api/alternatives.service';
 
@@ -38,12 +39,15 @@ export class ContentExercisePage implements OnInit {
 
   ngOnInit() {
     
-
-    console.log(this.optionsText);
   }
 
   goToBack() {
     this.router.navigate(['class-content']);
+  }
+
+  getAnswer(form : NgForm) {
+    const alternative = form.value;
+    console.log(alternative);
   }
 
 }

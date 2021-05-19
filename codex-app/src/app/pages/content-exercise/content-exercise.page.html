@@ -26,18 +26,18 @@
     </ion-text>
   </div>
 
-  <div>
+  <form #f="ngForm" (ngSubmit)="getAnswer(f)">
       <ion-radio-group>
 
         <ion-item class="alternative" mode='md' *ngFor="let alternative of optionsText">
           <ion-label>{{alternative.ds_alternativa}}</ion-label>
-          <ion-radio slot="start" [value]="alternative.id_alternativa"></ion-radio>
+          <ion-radio slot="start" [(ngModel)]="Answer" [value]="alternative.id_alternativa"></ion-radio>
         </ion-item>
     
         
       </ion-radio-group>
 
-      <div class="button">Confirmar</div>
-  </div>
+      <input type="submit" class="button" value="Confirmar">
+  </form>
 
 </ion-content>
