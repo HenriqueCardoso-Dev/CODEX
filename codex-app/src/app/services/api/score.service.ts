@@ -11,12 +11,13 @@ export class ScoreService {
   constructor(
     private http:HttpClient
   ) {
-    this.url = "http://localhost/CodexApi/score";
+    this.url = "http://localhost/CodexApi/score/";
   }
 
 
   getUserScore(id : number) {
-    return this.http.get(this.url +'/'+ id);
+    let test = this.http.get(this.url + id);
+    console.log(test);
   }
 
 

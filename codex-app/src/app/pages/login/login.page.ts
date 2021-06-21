@@ -12,11 +12,21 @@ import { ScoreService } from 'src/app/services/api/score.service';
 })
 export class LoginPage implements OnInit {
 
-  private identificator: string = "";
-  private passwordValue: string = "";
-  private userScore;
+  private identificator: string;
+  private passwordValue: string;
+  private userScore: number;
 
   public msg: string;
+
+  public userAcess : {
+    name: string,
+    username: string,
+    email: string,
+    password: string,
+    id: number,
+    userType: number,
+    userScore: number
+  };
 
   constructor(
     private route: Router, 
@@ -65,21 +75,23 @@ export class LoginPage implements OnInit {
         
         } else {
 
-          this.userScore = this.scoreService.getUserScore(response['id_usuario']);
+           
+          let tempScore = this.scoreService.getUserScore(response['id_usuario']);
+          this.userScore = tempScore['user_score'];
           
           //Data encapsulation for screen migration
-          let userAcess = {
+          this.userAcess = {
             name: response['nome'],
             username: response['nick'],
             email: response['email'],
             password: this.passwordValue,
             id: response['id_usuario'],
             userType: response['tipo_usuario'],
-            userScore: this.userScore['user_score']
+            userScore: this.userScore
           }
           let navigationExtras: NavigationExtras = {
             queryParams: {
-              special: JSON.stringify(userAcess)
+              special: JSON.stringify(this.userAcess)
             }
           }
           

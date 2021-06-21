@@ -13,10 +13,16 @@ export class UserService {
 
   private LoginUrl : string;
 
+  private urlTest : string;
+
+
+
   constructor(private http: HttpClient) { 
     this.url = "http://localhost/CodexApi/user";
 
     this.LoginUrl = "http://localhost/CodexApi/login";
+
+    this.urlTest = "http://localhost/CodexApi/score";
   }
 
   //função de GET para resgatar todos os usuários
