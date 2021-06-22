@@ -40,7 +40,6 @@ export class UserService {
 
   registerNewUser(data: user) {
     return this.http.post(this.url, data);
-
   }
 
 }

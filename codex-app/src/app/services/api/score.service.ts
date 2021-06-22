@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +17,8 @@ export class ScoreService {
 
 
   getUserScore(id : number) {
-    let test = this.http.get(this.url + id);
-    console.log(test);
+    return this.http.get(this.url + id).toPromise();
   }
 
-
 }
+

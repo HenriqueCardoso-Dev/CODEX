@@ -1,18 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router, ActivatedRoute } from '@angular/router';
 import { LanguagesService } from 'src/app/services/api/languages.service';
-import { languageBoxContent } from 'src/interfacesModels/languageBoxContent';
+
+export type userType = {
+  name: string,
+  username: string,
+  email: string,
+  password: string,
+  id: number,
+  userType: number,
+  userScore: number
+}
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
+
 export class HomePage implements OnInit {
 
   private languages;
 
-  private user;
+  private user: userType;
 
   private migration;
 
@@ -47,8 +57,6 @@ export class HomePage implements OnInit {
       }
 
     });
-
-    
 
   }
 

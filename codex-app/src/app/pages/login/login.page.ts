@@ -14,7 +14,6 @@ export class LoginPage implements OnInit {
 
   private identificator: string;
   private passwordValue: string;
-  private userScore: number;
 
   public msg: string;
 
@@ -74,10 +73,10 @@ export class LoginPage implements OnInit {
           this.showToast();
         
         } else {
-
-           
-          let tempScore = this.scoreService.getUserScore(response['id_usuario']);
-          this.userScore = tempScore['user_score'];
+          this.scoreService.getUserScore(response['id_usuario'])
+          .then(response => {
+           this.userAcess.userScore = response['user_score'];
+          });
           
           //Data encapsulation for screen migration
           this.userAcess = {
@@ -87,8 +86,9 @@ export class LoginPage implements OnInit {
             password: this.passwordValue,
             id: response['id_usuario'],
             userType: response['tipo_usuario'],
-            userScore: this.userScore
           }
+          
+          
           let navigationExtras: NavigationExtras = {
             queryParams: {
               special: JSON.stringify(this.userAcess)
