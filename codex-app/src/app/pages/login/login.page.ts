@@ -24,8 +24,10 @@ export class LoginPage implements OnInit {
     password: string,
     id: number,
     userType: number,
-    userScore: number
+    userScore: string
   };
+
+  public tempScore: string;
 
   constructor(
     private route: Router, 
@@ -73,22 +75,23 @@ export class LoginPage implements OnInit {
           this.showToast();
         
         } else {
-          this.scoreService.getUserScore(response['id_usuario'])
-          .then(response => {
-           this.userAcess.userScore = response['user_score'];
-          });
           
+          this.scoreService.getUserScore(response['id_usuario']).subscribe(response => {
+           this.tempScore = response['user_score'];
+          });
+
           //Data encapsulation for screen migration
           this.userAcess = {
-            name: response['nome'],
-            username: response['nick'],
             email: response['email'],
-            password: this.passwordValue,
             id: response['id_usuario'],
+            name: response['nome'],
+            password: this.passwordValue,
+            userScore: this.tempScore.toString(),
             userType: response['tipo_usuario'],
+            username: response['nick']
           }
           
-          
+
           let navigationExtras: NavigationExtras = {
             queryParams: {
               special: JSON.stringify(this.userAcess)

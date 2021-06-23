@@ -9,6 +9,8 @@ export class ScoreService {
 
   private url : string;
 
+  private userScore;
+
   constructor(
     private http:HttpClient
   ) {
@@ -17,7 +19,7 @@ export class ScoreService {
 
 
   getUserScore(id : number) {
-    return this.http.get(this.url + id).toPromise();
+    return this.http.get(this.url + id);
   }
 
 }
